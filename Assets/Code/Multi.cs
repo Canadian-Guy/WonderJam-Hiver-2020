@@ -8,6 +8,7 @@ using UnityEngine;
 public class Multi : MonoBehaviourPunCallbacks
 {
     RoomOptions m_roomOptions = new RoomOptions();
+    public GameObject m_testText;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,8 @@ public class Multi : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("Test").GetComponent<TextMeshPro>().text =
-            "Number of players currently in the room : " + PhotonNetwork.CurrentRoom.PlayerCount;
+        m_testText.GetComponent<TMP_Text>().text =
+            "Number of players currently in the room : " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
     }
 
     public override void OnCreatedRoom()
