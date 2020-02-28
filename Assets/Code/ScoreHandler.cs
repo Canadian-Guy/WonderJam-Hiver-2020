@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-
+/*
+ * Simple class that handles score stuff
+ * (Adding, displaying, updating the display)
+ */
 public class ScoreHandler : MonoBehaviour
 {
     [Tooltip("This is the current score!")]
@@ -20,12 +23,6 @@ public class ScoreHandler : MonoBehaviour
         Score = 0;
         ScoreText.text = Score.ToString();
         StartCoroutine(UpdateScore());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void AddScore(int p_score, int p_combo = 1)
