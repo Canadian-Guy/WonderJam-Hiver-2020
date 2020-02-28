@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using UnityEngine;
 
 public class Multi : MonoBehaviourPunCallbacks
@@ -25,7 +26,8 @@ public class Multi : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+        GameObject.Find("Test").GetComponent<TextMeshPro>().text =
+            "Number of players currently in the room : " + PhotonNetwork.CurrentRoom.PlayerCount;
     }
 
     public override void OnCreatedRoom()
