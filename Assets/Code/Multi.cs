@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine;
+
+public class Multi : MonoBehaviourPunCallbacks
+{
+    RoomOptions m_roomOptions = new RoomOptions();
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        PhotonNetwork.ConnectUsingSettings();
+        m_roomOptions.IsVisible = false;
+        m_roomOptions.MaxPlayers = 2;
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("OnConnectedToMaster() was called by PUN.");
+        PhotonNetwork.JoinOrCreateRoom("Test", m_roomOptions, TypedLobby.Default);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+    }
+
+    public override void OnCreatedRoom()
+    {
+        Debug.Log("Room was created");
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.Log("Room creation failed");
+    }
+
+    public override void OnJoinedRoom()
+    {
+        Debug.Log("Room joined");
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        Debug.Log("Room join failed");
+    }
+}
