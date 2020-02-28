@@ -12,7 +12,7 @@ public class ScoreHandler : MonoBehaviour
     void Start()
     {
         Score = 0;
-        ScoreText.text = Score.ToString();
+        ScoreText.text = Score.ToString() + "k";
     }
 
     // Update is called once per frame
@@ -24,7 +24,13 @@ public class ScoreHandler : MonoBehaviour
     public void AddScore(int p_score, int p_combo = 1)
     {
         Score += (p_score * p_combo);
-        ScoreText.text = Score.ToString();
+        ScoreText.text = Score.ToString() + "k";
+    }
+
+    public void Reset()
+    {
+        Score = 0;
+        ScoreText.text = "0k";
     }
 
     public void DEBUG_AddScoreCombo0()
