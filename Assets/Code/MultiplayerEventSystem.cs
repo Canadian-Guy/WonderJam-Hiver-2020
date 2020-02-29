@@ -26,7 +26,7 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
             Debug.Log("Event 0 received");
             foreach (var player in PhotonNetwork.PhotonViews)
             {
-                if (!player.ViewID.Equals(photonEvent.Sender))
+                if (player.ViewID.Equals(photonEvent.Sender))
                 {
                     player.gameObject.GetComponent<ScoreHandler>().PhotonIncreaseScore(-5);
                 }
