@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using ExitGames.Client.Photon;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MultiplayerEventController : MonoBehaviourPunCallbacks, IOnEventCallback
+public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallback
 {
-
     public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -19,11 +19,19 @@ public class MultiplayerEventController : MonoBehaviourPunCallbacks, IOnEventCal
     public void OnEvent(EventData photonEvent)
     {
         byte eventCode = photonEvent.Code;
+        var attackingPlayer = photonEvent.CustomData;
         Debug.Log("Received Event");
         if (eventCode == 0)
         {
-            PhotonNetwork.LoadLevel("TestScore");
+            Debug.Log("Event 0 received");
+            foreach (var player in PhotonNetwork.PhotonViews)
+            {
+                if (!player.ViewID.Equals(photonEvent.Sender))
+                {
+                    player.gameObject.GetComponent<ScoreHandler>().PhotonIncreaseScore(-5);
+                }
+            }
+            
         }
     }
-
 }
