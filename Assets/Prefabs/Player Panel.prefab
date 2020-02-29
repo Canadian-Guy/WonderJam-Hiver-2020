@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4822379277297080478}
   - component: {fileID: 4822379277297080477}
   - component: {fileID: 5531534369385902457}
+  - component: {fileID: 4109672182510195314}
   m_Layer: 5
   m_Name: PlayerInputField
   m_TagString: Untagged
@@ -233,7 +234,7 @@ MonoBehaviour:
   activeWordSet: {fileID: 11400000, guid: 0b67de80067e92744bc7f06b89a9f174, type: 2}
   inputField: {fileID: 4822379277297080479}
   ScoreHandler: {fileID: 6713246508993325397}
-  PView: {fileID: 0}
+  PView: {fileID: 4109672182510195314}
   ValidPlayerID: 1
   typing: 0
   PopSound: {fileID: 8300000, guid: 86c58838f8325e54d88e0e898135c676, type: 3}
@@ -347,6 +348,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4109672182510195314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822379277297080475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4822379277300014189
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +848,7 @@ GameObject:
   - component: {fileID: 4822379278977408417}
   - component: {fileID: 4822379278977408418}
   - component: {fileID: 5502895564659926557}
+  - component: {fileID: 1732426872486780166}
   m_Layer: 5
   m_Name: Spawner
   m_TagString: Untagged
@@ -848,8 +872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 340, y: 50}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4822379278977408418
 MonoBehaviour:
@@ -863,7 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2884c4bc48118d344953446afb9a9bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PView: {fileID: 0}
+  PView: {fileID: 1732426872486780166}
   SpawnZone: {fileID: 4822379278977408417}
   RandomizeLocations: 1
   Dictionary: {fileID: 5502895564659926557}
@@ -895,6 +919,28 @@ MonoBehaviour:
     type: 3}
   spawnParent: {fileID: 4822379277989130055}
   m_wordDictionary: []
+--- !u!114 &1732426872486780166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822379278977408416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4956258399905935961
 GameObject:
   m_ObjectHideFlags: 0
