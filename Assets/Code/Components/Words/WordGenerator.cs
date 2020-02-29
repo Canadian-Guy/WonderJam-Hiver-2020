@@ -11,9 +11,6 @@ public class WordGenerator : MonoBehaviour
     [Tooltip("This generator's configuration values. Will update the generator if hotswappped")]
     public WordGenConfig GeneratorConfiguration;
 
-    [Tooltip("The time it takes to reach difficulty 10 from 1")]
-    public int TimeToReachDiffCap;
-
     private WordGenConfig m_genConfig;
     private int CurrentDifficulty;
 
@@ -46,7 +43,7 @@ public class WordGenerator : MonoBehaviour
     {
         while(true) // TODO: change this to not run until it hits diff 10
         {
-            yield return new WaitForSeconds(TimeToReachDiffCap / 9f);
+            yield return new WaitForSeconds(m_genConfig.TimeToReachDiffCap / 9f);
 
             CurrentDifficulty++;
 
