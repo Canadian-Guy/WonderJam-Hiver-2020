@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: BetterPixels_f_SDF
   m_EditorClassIdentifier: 
-  hashCode: -326680445
+  hashCode: -328112740
   material: {fileID: 21910937811806750}
   materialHashCode: -1487274200
   m_Version: 1.1.0
@@ -4526,7 +4526,7 @@ Material:
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
     - _ScaleRatioB: 0.6770833
-    - _ScaleRatioC: 0.6770833
+    - _ScaleRatioC: 0.5208334
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -4540,8 +4540,8 @@ Material:
     - _TextureHeight: 512
     - _TextureWidth: 512
     - _UnderlayDilate: 0.3
-    - _UnderlayOffsetX: 0.5
-    - _UnderlayOffsetY: -0.5
+    - _UnderlayOffsetX: 1
+    - _UnderlayOffsetY: -0.9
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
