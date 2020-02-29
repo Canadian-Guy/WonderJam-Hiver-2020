@@ -13,6 +13,10 @@ public class InputHandler : MonoBehaviour
     public PhotonView PView;
     public int ValidPlayerID;
 
+    [Tooltip("Sound played when a valid word is typed")]
+    public AudioClip PopSound;
+
+    private AudioSource audioSource;
     private void Awake()
     {
         int actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
@@ -23,6 +27,8 @@ public class InputHandler : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(gameObject);
             GetComponent<Selectable>().OnSelect(null);
         }
+
+        audioSource = GetComponent<AudioSource>();
 
         Clear();
     }
@@ -53,7 +59,10 @@ public class InputHandler : MonoBehaviour
             if(word.Check(p_input))
             {
                 if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+                {
                     ScoreHandler.PhotonIncreaseScore(word.GetScore());
+                    audioSource.PlayOneShot(PopSound);
+                }
 
                 word.DestroyWord(false);
             }
