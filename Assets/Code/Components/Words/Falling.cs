@@ -7,7 +7,7 @@ public class Falling : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-    [Range(0f, 5f)]
+    [Range(0f, 50f)]
     public float speed = .1f;
     public bool frozen = false;
     public bool reversed = false;

@@ -11,17 +11,20 @@ public class WordGenerator : MonoBehaviour
     [Tooltip("This generator's configuration values. Will update the generator if hotswappped")]
     public WordGenConfig GeneratorConfiguration;
 
+    public GameObjectSet activeWords;
+    public GameObject wordPrefab;
+    public Transform spawnParent;
+
     private WordGenConfig m_genConfig;
     private int CurrentDifficulty;
 
     [SerializeField] private List<WordWrapper> m_wordDictionary;
-    [SerializeField] private List<WordWrapper> m_activeWords;
+    //[SerializeField] private List<WordWrapper> m_activeWords;
 
     void Start()
     {
         CurrentDifficulty = 1;
         m_wordDictionary = new List<WordWrapper>();
-        m_activeWords = new List<WordWrapper>();
         m_genConfig = GeneratorConfiguration;
 
         Generate();
@@ -53,7 +56,7 @@ public class WordGenerator : MonoBehaviour
         }
     }
 
-    public WordWrapper GetWord()
+    public void CreateWord()
     {
         if(m_wordDictionary.Count == 0) Generate();
 
@@ -61,20 +64,15 @@ public class WordGenerator : MonoBehaviour
         WordWrapper selected = m_wordDictionary[selectedIndex];
 
         m_wordDictionary.RemoveAt(selectedIndex);
-        m_activeWords.Add(selected);
 
-        return selected;
-    }
+        GameObject go = Instantiate(wordPrefab, spawnParent);
+        SpellChecker sc = go.GetComponent<SpellChecker>();
 
-    public List<WordWrapper> GetActiveWords()
-    {
-        return new List<WordWrapper>(m_activeWords);
-    }
+        if (sc) sc.Init(selected.Word);
 
-    public void RemoveActiveWord(WordWrapper p_activeWord)
-    {
-        if(m_activeWords.Contains(p_activeWord))
-            m_activeWords.Remove(p_activeWord);
+        go.transform.position = Vector3.zero; // TODO Set random position in predefined spawn area
+
+        activeWords.Add(go);
     }
 
     private void Generate()
