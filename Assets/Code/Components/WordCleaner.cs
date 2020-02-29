@@ -16,8 +16,14 @@ public class WordCleaner : MonoBehaviour
     [Tooltip("The player ID linked to this cleaner")]
     public int ValidPlayerID;
 
+    [Tooltip("Sound to play when the combo is broken")]
+    public AudioClip ComboBreakSound;
+
+    private AudioSource audioSource;
+
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(UpdateWords());
     }
 
@@ -25,7 +31,7 @@ public class WordCleaner : MonoBehaviour
     {
         while(PhotonNetwork.InRoom)
         {
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
 
             for(int i = ActiveWordSet.Count() - 1; i >= 0; i--)
             {
@@ -33,8 +39,11 @@ public class WordCleaner : MonoBehaviour
 
                 if(!word) continue;
 
-                if(word.BrokeCombo && PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID) 
+                if(word.BrokeCombo && PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+                {
                     Score.BreakCombo();
+                    audioSource.PlayOneShot(ComboBreakSound);
+                }
 
                 if(word.RequiresDeletion)
                 {
