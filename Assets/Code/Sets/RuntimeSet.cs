@@ -3,7 +3,12 @@ using UnityEngine;
 
 public abstract class RuntimeSet<T> : ScriptableObject 
 {
-	[SerializeField] private List<T> _items = new List<T>();
+	public List<T> _items = new List<T>(); // im sorry
+
+    private void OnEnable()
+    {
+        _items.Clear();
+    }
 
 	public bool Add(T p_item) 
 	{

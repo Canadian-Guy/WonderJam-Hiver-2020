@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdd3c51dfd56834f84bee10b2cbf074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCardsSet: {fileID: 0}
+  activeCardsSet: {fileID: 11400000, guid: 5b9792b0f676a0645b2558a206563aff, type: 2}
   inputField: {fileID: 995822398}
 --- !u!114 &995822402
 MonoBehaviour:
@@ -440,7 +440,7 @@ PrefabInstance:
     - target: {fileID: 5662234826631376824, guid: 50e0efbe59436aa45a7ac1c0d5d8d33b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5662234826631376824, guid: 50e0efbe59436aa45a7ac1c0d5d8d33b,
         type: 3}

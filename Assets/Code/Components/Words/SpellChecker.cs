@@ -10,13 +10,17 @@ public class SpellChecker : MonoBehaviour
 
     private void Awake()
     {
-        if (word)
-            label.text = word ? word.Text : "???";
+        label.text = "MISSING WORD";
     }
 
-    public void Check(string p_string)
+    public bool Check(string p_string)
     {
-        if (word && word.Text == p_string)
-            Destroy(gameObject);
+        return word && word.Text == p_string;
+    }
+
+    public void Init(Word p_word)
+    {
+        word = p_word;
+        label.text = p_word.Text;
     }
 }

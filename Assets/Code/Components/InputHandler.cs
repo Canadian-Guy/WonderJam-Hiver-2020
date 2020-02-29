@@ -21,11 +21,25 @@ public class InputHandler : MonoBehaviour
 
         Debug.Log("Sent this : *" + inputField.text + "*");
 
+        ManageActiveWords();
 
         Clear();
     }
 
-    public void PATATE() { }
+    public void ManageActiveWords()
+    {
+        SpellChecker sc;
+        for(int i = activeCardsSet.Count() - 1; i >= 0; i--)
+        {
+            sc = activeCardsSet._items[i].GetComponent<SpellChecker>();
+
+            if (sc && sc.Check(inputField.text))
+            {
+                activeCardsSet.Remove(sc.gameObject);
+                Destroy(sc.gameObject);
+            }
+        }
+    }
 
     private void Clear()
     {
