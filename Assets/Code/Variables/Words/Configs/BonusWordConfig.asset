@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a4fc6415d04c94ab32321fe8776bce, type: 3}
+  m_Name: BonusWordConfig
+  m_EditorClassIdentifier: 
+  DictionarySize: 50
+  TimeToReachDiffCap: 96
+  Words:
+  - Word: {fileID: 11400000, guid: 4b0c699a072c5714fb37bf426ec4f877, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 82ddd579b8301c04b90185f9dd02fa58, type: 2}
+    Difficulty: 1
+    Probability: 100

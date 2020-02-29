@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -19,13 +20,20 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
-        m_roomOptions.IsVisible = false;
+        m_roomOptions.IsVisible = true;
         m_roomOptions.MaxPlayers = 2;
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster() was called by PUN.");
+    }
+
+    public override void OnJoinedLobby()
+    {
+        base.OnJoinedLobby();
+        Debug.Log("Lobby Joined");
     }
 
     public void JoinRoom(string p_room)
@@ -36,6 +44,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel(0);
     }
 
     // Update is called once per frame
@@ -70,5 +79,11 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
         Debug.Log("Room join failed");
 
         MainMenuHandler.RoomFail();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel(0);
     }
 }

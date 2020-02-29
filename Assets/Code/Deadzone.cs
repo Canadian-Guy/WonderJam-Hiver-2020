@@ -13,7 +13,9 @@ public class Deadzone : MonoBehaviour
         {
             FallingWord word = other.gameObject.GetComponent<FallingWord>();
 
-            if(word) word.DestroyWord(true);
+            if(word.tag == "BonusWord") word.DestroyWord(false);
+
+            else if(word) word.DestroyWord(true);
         }
     }
 }
