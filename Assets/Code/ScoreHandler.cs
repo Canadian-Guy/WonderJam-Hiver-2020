@@ -1,5 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
+using ExitGames.Client.Photon;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 
@@ -84,11 +86,17 @@ public class ScoreHandler : MonoBehaviour
 
     public void DEBUG_AddScoreCombo0()
     {
-        AddScore(5);
+        PhotonIncreaseScore(5);
     }
 
     public void DEBUG_AddScoreCombo5()
     {
-        AddScore(5, 5);
+        PhotonIncreaseScore(25);
+    }
+
+    public void Attack()
+    {
+        byte evCode = 0;
+        PhotonNetwork.RaiseEvent(evCode, photonView.ViewID, RaiseEventOptions.Default, SendOptions.SendReliable);
     }
 }
