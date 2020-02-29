@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -20,18 +21,28 @@ public class ScoreHandler : MonoBehaviour
     [Tooltip("Score tick increments")]
     public int Increment = 0;
 
+    private PhotonView photonView;
+
     private bool IsItTheEndOfTimes = false;
 
     void Start()
     {
         Score = 0;
         ScoreText.text = Score.ToString();
+        photonView = gameObject.AddComponent<PhotonView>();
         StartCoroutine(UpdateScore());
     }
 
+    public void PhotonIncreasePlayer1Score()
+    {
+        photonView.RPC("AddScore", RpcTarget.All, 5, 1);
+    }
+
+    [PunRPC]
     public void AddScore(int p_score, int p_combo = 1)
     {
         Score += (p_score * p_combo);
+        
         //ScoreText.text = Score.ToString();
     }
 

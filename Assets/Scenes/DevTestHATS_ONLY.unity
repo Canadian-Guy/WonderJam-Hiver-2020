@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 907081720}
   - component: {fileID: 907081719}
   - component: {fileID: 907081718}
+  - component: {fileID: 907081721}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -359,6 +360,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &907081721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907081717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab6fec223909e148a5f14f9e9bdfd77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomInputField: {fileID: 0}
 --- !u!1 &973685699
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +968,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1180267651}
-        m_MethodName: DEBUG_AddScoreCombo0
+        m_MethodName: PhotonIncreasePlayer1Score
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
