@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class MultiplayerConnector : MonoBehaviourPunCallbacks
 {
     RoomOptions m_roomOptions = new RoomOptions();
-    public InputField RoomInputField;
+    public MainMenuUIHandler MainMenuHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +25,14 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
         Debug.Log("OnConnectedToMaster() was called by PUN.");
     }
 
-    public void JoinRoom()
+    public void JoinRoom(string p_room)
     {
-        PhotonNetwork.JoinOrCreateRoom(RoomInputField.text.ToLower(), m_roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(p_room.ToLower(), m_roomOptions, TypedLobby.Default);
     }
 
-    public void RoomInputFieldChanged(string input)
+    public void LeaveRoom()
     {
-        RoomInputField.textComponent.text = input;
+        PhotonNetwork.LeaveRoom();
     }
 
     // Update is called once per frame
@@ -55,10 +55,14 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     {
         Debug.Log("Room joined");
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
+
+        MainMenuHandler.RoomJoined();
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         Debug.Log("Room join failed");
+
+        MainMenuHandler.RoomFail();
     }
 }
