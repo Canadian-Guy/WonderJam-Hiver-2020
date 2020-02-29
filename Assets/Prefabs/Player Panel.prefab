@@ -212,6 +212,10 @@ MonoBehaviour:
   ScoreHandler: {fileID: 6713246508993325397}
   PView: {fileID: 0}
   ValidPlayerID: 1
+  PopSound: {fileID: 0}
+  KeystrokeSound: {fileID: 0}
+  InvalidSound: {fileID: 0}
+  highlightColor: {r: 0.88235295, g: 0.88235295, b: 0.09803922, a: 0}
 --- !u!114 &4822379277297080477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,6 +685,7 @@ MonoBehaviour:
   Score: {fileID: 6713246508993325397}
   ActiveWordSet: {fileID: 11400000, guid: 0b67de80067e92744bc7f06b89a9f174, type: 2}
   ValidPlayerID: 1
+  ComboBreakSound: {fileID: 0}
 --- !u!1 &4822379278977408416
 GameObject:
   m_ObjectHideFlags: 0

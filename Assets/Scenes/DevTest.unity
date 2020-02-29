@@ -1391,6 +1391,11 @@ PrefabInstance:
       propertyPath: InvalidSound
       value: 
       objectReference: {fileID: 8300000, guid: bf92772043bbcec44aa75703f8f38eec, type: 3}
+    - target: {fileID: 4822379277297080478, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: highlightColor.rgba
+      value: 1696225
+      objectReference: {fileID: 0}
     - target: {fileID: 4822379277297080479, guid: 1e4d23e768bafc945b4541d289d553af,
         type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
@@ -1451,6 +1456,36 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4822379277297080479, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822379277297080479, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822379277297080479, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4822379278534367529}
+    - target: {fileID: 4822379277297080479, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HighlightWords
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822379277297080479, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822379277297080479, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_isRichTextEditingAllowed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4822379277989130054, guid: 1e4d23e768bafc945b4541d289d553af,
         type: 3}
       propertyPath: m_Name
@@ -1510,6 +1545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822379277991902205, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 169.97998
       objectReference: {fileID: 0}
     - target: {fileID: 4822379278977408417, guid: 1e4d23e768bafc945b4541d289d553af,
         type: 3}
