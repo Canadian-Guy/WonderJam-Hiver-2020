@@ -12,7 +12,6 @@ public class GameEventListener : MonoBehaviour, IListener
 
 	[SerializeField] private UnityEvent _response = null;
 
-
 	protected virtual void OnEnable() 
 	{
 	    gameEvent.RegisterListener(this);
@@ -23,7 +22,6 @@ public class GameEventListener : MonoBehaviour, IListener
 		gameEvent.UnregisterListener(this);
 	}
 
-
 	public void OnEventRaised() 
 	{
         if (responseDelay > 0f)
@@ -31,7 +29,6 @@ public class GameEventListener : MonoBehaviour, IListener
         else
             _response.Invoke();
 	}
-
 
 	private IEnumerator InvokeLater(float p_wait)
 	{
