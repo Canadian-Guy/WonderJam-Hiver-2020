@@ -12,13 +12,12 @@ using UnityEngine.UIElements;
 
 public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallback
 {
-    InputHandler[] Players = new InputHandler[2];
+    public InputHandler[] Players = new InputHandler[2];
 
     public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
         PhotonNetwork.AutomaticallySyncScene = true;
-        Players = GameObject.FindObjectsOfType<InputHandler>();
     }
 
     public void OnEvent(EventData photonEvent)
