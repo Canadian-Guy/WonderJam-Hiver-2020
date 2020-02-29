@@ -538,6 +538,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 4433377798792073645, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 7042458087208052075, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -604,6 +609,41 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7575554705640584789, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575554705640584789, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5613699297968505167}
+    - target: {fileID: 7575554705640584789, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575554705640584789, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575554705640584789, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575554705640584789, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Typing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575554705640584789, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7575554705705478437, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -643,6 +683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181166153671797002, guid: 8b0397ecc69dee14c83a40e34f5a6a6f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0397ecc69dee14c83a40e34f5a6a6f, type: 3}
