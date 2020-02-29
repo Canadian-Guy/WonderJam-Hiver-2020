@@ -11,6 +11,9 @@ public class WordGenConfig : ScriptableObject
     [Tooltip("The size of the generator's word dictionary, when it run out, it generates a new one of this size")]
     public int DictionarySize = 50;
 
+    [Tooltip("The time it takes to reach difficulty 10 from 1")]
+    public int TimeToReachDiffCap = 30;
+
     [Tooltip("The list of words available to the generator")]
     public List<WordWrapper> Words;
 
