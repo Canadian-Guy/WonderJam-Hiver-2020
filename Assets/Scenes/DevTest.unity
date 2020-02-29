@@ -1401,6 +1401,12 @@ PrefabInstance:
       propertyPath: PView
       value: 
       objectReference: {fileID: 4822379278534367524}
+    - target: {fileID: 4822379277297080478, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: activeWordSet
+      value: 
+      objectReference: {fileID: 11400000, guid: f1d6788b16fe67e40b08bd104d483f57,
+        type: 2}
     - target: {fileID: 4822379277989130054, guid: 1e4d23e768bafc945b4541d289d553af,
         type: 3}
       propertyPath: m_Name

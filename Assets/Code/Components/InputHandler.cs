@@ -4,6 +4,8 @@ using Photon.Pun;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using ExitGames.Client.Photon;
+using Photon.Realtime;
 
 public class InputHandler : MonoBehaviour
 {
@@ -52,7 +54,12 @@ public class InputHandler : MonoBehaviour
 
             if(word.Check(p_input))
             {
-                if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+                if (word.tag == "BonusWord")
+                {
+                    ScoreHandler.PhotonIncreaseScore(word.GetScore());
+                    PhotonNetwork.RaiseEvent(0, PhotonNetwork.LocalPlayer, RaiseEventOptions.Default, SendOptions.SendReliable);
+                }
+                else if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
                     ScoreHandler.PhotonIncreaseScore(word.GetScore());
 
                 word.DestroyWord(false);

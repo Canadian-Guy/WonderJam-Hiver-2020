@@ -50,10 +50,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            PhotonNetwork.RaiseEvent(evCode, null, new RaiseEventOptions(){Receivers = ReceiverGroup.All}, new SendOptions(){Reliability = true});
-        }
+
     }
 
     public override void OnCreatedRoom()

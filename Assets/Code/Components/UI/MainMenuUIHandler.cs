@@ -8,6 +8,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 /*
@@ -123,9 +124,9 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
         foreach (RoomInfo roomInfo in roomList)
         {
             DefaultControls.Resources TempResource = new DefaultControls.Resources();
-            GameObject NewText = DefaultControls.CreateText(TempResource);
+            GameObject NewText = DefaultControls.CreateButton(TempResource);
             NewText.AddComponent<LayoutElement>();
-            NewText.GetComponent<Text>().text = roomInfo.Name;
+            NewText.GetComponentInChildren<Text>().text = roomInfo.Name;
             NewText.transform.SetParent(FindContent(roomScrollRect.gameObject));
             NewText.transform.position = GetComponentInParent<Transform>().position;
         }

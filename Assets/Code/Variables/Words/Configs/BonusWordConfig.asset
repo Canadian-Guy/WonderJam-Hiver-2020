@@ -19,5 +19,5 @@ MonoBehaviour:
     Difficulty: 1
     Probability: 100
   - Word: {fileID: 11400000, guid: 82ddd579b8301c04b90185f9dd02fa58, type: 2}
-    Difficulty: 1
+    Difficulty: 2
     Probability: 100

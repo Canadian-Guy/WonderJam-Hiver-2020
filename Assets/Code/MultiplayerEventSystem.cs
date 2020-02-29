@@ -12,11 +12,13 @@ using UnityEngine.UIElements;
 
 public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallback
 {
+    InputHandler[] Players = new InputHandler[2];
 
     public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
         PhotonNetwork.AutomaticallySyncScene = true;
+        Players = GameObject.FindObjectsOfType<InputHandler>();
     }
 
     public void OnEvent(EventData photonEvent)
@@ -27,11 +29,11 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
         if (eventCode == 0)
         {
             Debug.Log("Event 0 received");
-            foreach (var player in PhotonNetwork.PhotonViews)
+            foreach (var player in PhotonNetwork.PlayerList)
             {
-                if (player.ViewID.Equals(photonEvent.Sender))
+                if (!player.Equals(attackingPlayer))
                 {
-                    player.gameObject.GetComponent<ScoreHandler>().PhotonIncreaseScore(-5);
+                    Players[player.ActorNumber].ScoreHandler.PhotonIncreaseScore(-50000);
                 }
             }
             
