@@ -31,7 +31,7 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
         {
             Debug.Log("Event 0 received");
 
-            Players[attackingPlayer == 1 ? 2 : 1].ScoreHandler.PhotonIncreaseScore(-50000);
+            Players[attackingPlayer == 1 ? 1 : 0].ScoreHandler.PhotonIncreaseScore(-50000);
         }
     }
 }
