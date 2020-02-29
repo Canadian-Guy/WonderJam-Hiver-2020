@@ -485,6 +485,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 513410558027561943, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: viewIdField
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 762672581308540728, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -619,6 +624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675605320151592899, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 169.97995
       objectReference: {fileID: 0}
     - target: {fileID: 4675605321267162258, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
@@ -764,6 +774,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116317100756213886, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: viewIdField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150578713567732054, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: viewIdField
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d94f4429dd781f4b93f434466c35434, type: 3}
@@ -932,7 +952,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1220696733}
   - component: {fileID: 1220696732}
-  - component: {fileID: 1220696734}
   m_Layer: 0
   m_Name: MultiplayerEventSystem
   m_TagString: Untagged
