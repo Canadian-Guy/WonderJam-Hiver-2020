@@ -115,7 +115,7 @@ public class InputHandler : MonoBehaviour
                     Debug.Log("Sending event code");
                     m_foundWord = true;
                     ScoreHandler.PhotonIncreaseScore(word.GetScore());
-                    PhotonNetwork.RaiseEvent((byte)word.Wrapper.Word.EventCode, null, RaiseEventOptions.Default, SendOptions.SendReliable);
+                    PhotonNetwork.RaiseEvent((byte)word.Wrapper.Word.EventCode, PhotonNetwork.LocalPlayer, RaiseEventOptions.Default, SendOptions.SendReliable);
                     audioSource.PlayOneShot(PopSound);
                 }
                 else if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
