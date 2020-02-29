@@ -27,7 +27,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinOrCreateRoom(RoomInputField.text, m_roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(RoomInputField.text.ToLower(), m_roomOptions, TypedLobby.Default);
     }
 
     public void RoomInputFieldChanged(string input)
@@ -38,7 +38,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+
     }
 
     public override void OnCreatedRoom()
