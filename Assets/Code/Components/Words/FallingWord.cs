@@ -16,6 +16,8 @@ public class FallingWord : MonoBehaviour
     [HideInInspector] public TMP_Text Text;
     [HideInInspector] public Falling Falling;
 
+    public GameObject popUpPrefab;
+
     private FallingWordSet m_activeWordSet;
 
     void Awake()
@@ -25,6 +27,13 @@ public class FallingWord : MonoBehaviour
 
         Text.text = "MISSING WORD";
     }
+
+    public void CreatePopUp()
+    {
+        GameObject pop = Instantiate(popUpPrefab);
+        pop.transform.position = transform.position;
+    }
+
 
     public bool Check(string p_string)
     {
