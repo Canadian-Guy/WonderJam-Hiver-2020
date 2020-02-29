@@ -24,7 +24,7 @@ MonoBehaviour:
     Protocol: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  PunLogging: 2
+  PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
@@ -34,9 +34,6 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
-  - IncreasePlayer1Score
-  - IncreasePlayer2Score
-  - IncreasePlayer1ScoreButton
-  - IncreasePlayer2ScoreButton
+  - AddScore
   DisableAutoOpenWizard: 1
   ShowSettings: 1
