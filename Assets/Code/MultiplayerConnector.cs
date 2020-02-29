@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Multi : MonoBehaviourPunCallbacks
+public class MultiplayerConnector : MonoBehaviourPunCallbacks
 {
     RoomOptions m_roomOptions = new RoomOptions();
-    public GameObject m_testText;
+    public MainMenuUIHandler MainMenuHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +23,22 @@ public class Multi : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster() was called by PUN.");
-        PhotonNetwork.JoinOrCreateRoom("Test", m_roomOptions, TypedLobby.Default);
+    }
+
+    public void JoinRoom(string p_room)
+    {
+        PhotonNetwork.JoinOrCreateRoom(p_room.ToLower(), m_roomOptions, TypedLobby.Default);
+    }
+
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PhotonNetwork.CurrentRoom != null)
-            m_testText.GetComponent<TMP_Text>().text =
-                "Number of players currently in the room : " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+
     }
 
     public override void OnCreatedRoom()
@@ -45,10 +54,15 @@ public class Multi : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Room joined");
+        Debug.Log(PhotonNetwork.CurrentRoom.Name);
+
+        MainMenuHandler.RoomJoined();
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         Debug.Log("Room join failed");
+
+        MainMenuHandler.RoomFail();
     }
 }
