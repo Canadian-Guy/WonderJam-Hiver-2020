@@ -812,11 +812,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3317827640621349416, guid: c4a74c4538c989a4a86c77a51106dcfd,
-        type: 3}
-      propertyPath: PView
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3317827640621349419, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: m_LocalPosition.y
