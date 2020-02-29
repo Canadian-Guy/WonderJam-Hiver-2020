@@ -13,6 +13,16 @@ public class InputHandler : MonoBehaviour
     public PhotonView PView;
     public int ValidPlayerID;
 
+    [Tooltip("Sound played when a valid word is typed")]
+    public AudioClip PopSound;
+    
+    [Tooltip("Sound played when a valid word is typed")]
+    public AudioClip KeystrokeSound;
+
+    [Tooltip("Sound played when an invalid word is typed")]
+    public AudioClip InvalidSound;
+
+    private AudioSource audioSource;
     private void Awake()
     {
         int actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
@@ -24,7 +34,14 @@ public class InputHandler : MonoBehaviour
             GetComponent<Selectable>().OnSelect(null);
         }
 
+        audioSource = GetComponent<AudioSource>();
+
         Clear();
+    }
+
+    public void PlayKeyStroke()
+    {
+        audioSource.PlayOneShot(KeystrokeSound);
     }
 
     public void ConfirmInput()
@@ -44,6 +61,7 @@ public class InputHandler : MonoBehaviour
     [PunRPC]
     private void TypedWord(string p_input)
     {
+        bool m_foundWord = false;
         for(int i = activeWordSet.Count() - 1; i >= 0; i--)
         {
             FallingWord word = activeWordSet._items[i];
@@ -53,10 +71,19 @@ public class InputHandler : MonoBehaviour
             if(word.Check(p_input))
             {
                 if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+                {
+                    m_foundWord = true;
                     ScoreHandler.PhotonIncreaseScore(word.GetScore());
+                    audioSource.PlayOneShot(PopSound);
+                }
 
                 word.DestroyWord(false);
             }
+        }
+
+        if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID && !m_foundWord)
+        {
+            audioSource.PlayOneShot(InvalidSound);
         }
     }
 
