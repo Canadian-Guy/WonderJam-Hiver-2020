@@ -219,10 +219,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeWordSet: {fileID: 11400000, guid: 0b67de80067e92744bc7f06b89a9f174, type: 2}
+  BonusWordSet: {fileID: 11400000, guid: f1d6788b16fe67e40b08bd104d483f57, type: 2}
   inputField: {fileID: 4822379277297080479}
   ScoreHandler: {fileID: 6713246508993325397}
   PView: {fileID: 0}
   ValidPlayerID: 1
+  typing: 0
   PopSound: {fileID: 0}
   KeystrokeSound: {fileID: 0}
   InvalidSound: {fileID: 0}

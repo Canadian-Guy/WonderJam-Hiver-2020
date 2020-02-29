@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Doritos
   m_EditorClassIdentifier: 
   Text: doritos
+  EventCode: 1

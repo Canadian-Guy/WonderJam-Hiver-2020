@@ -4,12 +4,14 @@ using Photon.Pun;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using Boo.Lang;
 using ExitGames.Client.Photon;
 using Photon.Realtime;
 
 public class InputHandler : MonoBehaviour
 {
     public FallingWordSet activeWordSet;
+    public FallingWordSet BonusWordSet;
     public TMP_InputField inputField;
     public ScoreHandler ScoreHandler;
     public PhotonView PView;
@@ -90,25 +92,30 @@ public class InputHandler : MonoBehaviour
         PView.RPC("TypedWord", RpcTarget.All, inputField.text);
     }
 
+    private List<FallingWord> getAllActiveWords()
+    {
+        List<FallingWord> allWords = new List<FallingWord>();
 
+        allWords.AddRange(activeWordSet._items);
+        allWords.AddRange(BonusWordSet._items);
+
+        return allWords;
+    }
 
     [PunRPC]
     private void TypedWord(string p_input)
     {
         bool m_foundWord = false;
-        for(int i = activeWordSet.Count() - 1; i >= 0; i--)
+        foreach(FallingWord word in getAllActiveWords())
         {
-            FallingWord word = activeWordSet._items[i];
-
-            if(!word) continue;
-
             if(word.Check(p_input))
             {
                 if (word.tag == "BonusWord")
                 {
+                    Debug.Log("Sending event code");
                     m_foundWord = true;
                     ScoreHandler.PhotonIncreaseScore(word.GetScore());
-                    PhotonNetwork.RaiseEvent(0, PhotonNetwork.LocalPlayer, RaiseEventOptions.Default, SendOptions.SendReliable);
+                    PhotonNetwork.RaiseEvent((byte)word.Wrapper.Word.EventCode, null, RaiseEventOptions.Default, SendOptions.SendReliable);
                     audioSource.PlayOneShot(PopSound);
                 }
                 else if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)

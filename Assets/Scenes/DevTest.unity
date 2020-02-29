@@ -545,6 +545,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LeaveRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 4675605319556648096, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: BonusWordSet
+      value: 
+      objectReference: {fileID: 11400000, guid: f1d6788b16fe67e40b08bd104d483f57,
+        type: 2}
     - target: {fileID: 4675605319556648098, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -698,7 +704,47 @@ PrefabInstance:
     - target: {fileID: 6983812880648928592, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: SpawnRateRange.Min
+      value: 12.743624
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: SpawnRateRange.Max
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: RandomizeLocations
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: SpeedUpWords
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: SpeedRange.Min
+      value: 1.0540437
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: SpeedRange.Max
+      value: 2.1672163
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345527, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345527, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 124
       objectReference: {fileID: 0}
     - target: {fileID: 7422883287175832336, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
@@ -982,6 +1028,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1127643383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 807182046302417561, guid: 9d94f4429dd781f4b93f434466c35434,
+    type: 3}
+  m_PrefabInstance: {fileID: 609640839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1127643384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127643383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec963fc5ad87da045b5be76f89faf749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: {fileID: 0}
+  ActiveWordSet: {fileID: 11400000, guid: f1d6788b16fe67e40b08bd104d483f57, type: 2}
+  ValidPlayerID: 0
+  ComboBreakSound: {fileID: 0}
 --- !u!1 &1220696731
 GameObject:
   m_ObjectHideFlags: 0

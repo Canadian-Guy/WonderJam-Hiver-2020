@@ -23,20 +23,19 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
 
     public void OnEvent(EventData photonEvent)
     {
-        byte eventCode = photonEvent.Code;
-        var attackingPlayer = photonEvent.CustomData;
-        Debug.Log("Received Event");
-        if (eventCode == 0)
-        {
-            Debug.Log("Event 0 received");
-            foreach (var player in PhotonNetwork.PlayerList)
-            {
-                if (!player.Equals(attackingPlayer))
-                {
-                    Players[player.ActorNumber].ScoreHandler.PhotonIncreaseScore(-50000);
-                }
-            }
+        int eventCode = (int)photonEvent.Code;
+        Debug.Log("Received Event : " + eventCode);
+        //if (eventCode == 0)
+        //{
+        //    Debug.Log("Event 0 received");
+        //    foreach (var player in PhotonNetwork.PlayerList)
+        //    {
+        //        if (!player.Equals(attackingPlayer))
+        //        {
+        //            Players[player.ActorNumber].ScoreHandler.PhotonIncreaseScore(-50000);
+        //        }
+        //    }
             
-        }
+        //}
     }
 }

@@ -47,12 +47,6 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override void OnCreatedRoom()
     {
         Debug.Log("Room was created");
