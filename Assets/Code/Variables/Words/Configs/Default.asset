@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   DictionarySize: 50
+  TimeToReachDiffCap: 96
   Words:
   - Word: {fileID: 11400000, guid: 5f531d698e676e6469c157c4f2e75f2e, type: 2}
     Difficulty: 1

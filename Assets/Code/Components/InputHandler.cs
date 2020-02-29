@@ -6,7 +6,7 @@ using TMPro;
 
 public class InputHandler : MonoBehaviour
 {
-    public GameObjectSet activeCardsSet;
+    public FallingWordSet activeWordSet;
     public TMP_InputField inputField;
 
     private void Awake()
@@ -14,12 +14,9 @@ public class InputHandler : MonoBehaviour
         Clear();
     }
 
-
     public void ConfirmInput()
     {
-        if (inputField.text == "") return; 
-
-        Debug.Log("Sent this : *" + inputField.text + "*");
+        if(inputField.text == "") return; 
 
         ManageActiveWords();
 
@@ -28,16 +25,13 @@ public class InputHandler : MonoBehaviour
 
     public void ManageActiveWords()
     {
-        SpellChecker sc;
-        for(int i = activeCardsSet.Count() - 1; i >= 0; i--)
+        for(int i = activeWordSet.Count() - 1; i >= 0; i--)
         {
-            sc = activeCardsSet._items[i].GetComponent<SpellChecker>();
+            FallingWord word = activeWordSet._items[i];
 
-            if (sc && sc.Check(inputField.text))
-            {
-                activeCardsSet.Remove(sc.gameObject);
-                Destroy(sc.gameObject);
-            }
+            if(!word) continue;
+
+            if(word.Check(inputField.text)) word.DestroyWord();
         }
     }
 

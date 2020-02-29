@@ -9,12 +9,11 @@ public class Deadzone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (destroyMask == (destroyMask | (1 << other.gameObject.layer)))
+        if(destroyMask == (destroyMask | (1 << other.gameObject.layer)))
         {
-            Debug.Log("POP");
-            Destroy(other.gameObject);
-        }
+            FallingWord word = other.gameObject.GetComponent<FallingWord>();
 
-        Debug.Log("POW");
+            if(word) word.DestroyWord();
+        }
     }
 }
