@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85d6cedee5792d449c1e93f785b97cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_image: {fileID: 1018041974}
   m_animator: {fileID: 1018041976}
   m_timer: {fileID: 964170281}
 --- !u!1 &1314101897 stripped
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85d6cedee5792d449c1e93f785b97cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_image: {fileID: 1314101897}
   m_animator: {fileID: 1314101899}
   m_timer: {fileID: 964170281}
 --- !u!1 &1428769865
@@ -350,6 +352,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 36e312382bd09724cbff2a8ed0f43221,
+        type: 3}
+    - target: {fileID: 7264198576306166749, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4995ce6b36c1b844685378e062d4938e,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a74c4538c989a4a86c77a51106dcfd, type: 3}
