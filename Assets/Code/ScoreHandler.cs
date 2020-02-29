@@ -17,15 +17,16 @@ public class ScoreHandler : MonoBehaviour
     [Tooltip("Text component that displays the score.")]
     public TMP_Text ScoreText;
 
+    [Tooltip("Text component that displays the combo.")]
+    public TMP_Text ComboText;
+
     [Tooltip("Score increment tick speed, in seconds")]
     public float Speed = 0;
 
     [Tooltip("Score tick increments")]
     public int Increment = 0;
 
-    private PhotonView photonView;
-
-    private static int Cmpt = 1;
+    public PhotonView photonView;
 
     private bool IsItTheEndOfTimes = false;
 
@@ -35,14 +36,26 @@ public class ScoreHandler : MonoBehaviour
     {
         Score = 0;
         ScoreText.text = Score.ToString();
-        photonView = gameObject.AddComponent<PhotonView>();
-        photonView.ViewID = Cmpt++;
         StartCoroutine(UpdateScore());
     }
 
     public void PhotonIncreaseScore(int p_scoreToAdd)
     {
         photonView.RPC("AddScore", RpcTarget.All,p_scoreToAdd);
+        photonView.RPC("UpdateCombo", RpcTarget.All, m_combo + 1);
+    }
+
+    public void BreakCombo()
+    {
+        photonView.RPC("UpdateCombo", RpcTarget.All, 1);
+    }
+
+    [PunRPC]
+    public void UpdateCombo(int p_combo)
+    {
+        m_combo = p_combo;
+
+        ComboText.text = m_combo + "x";
     }
 
     [PunRPC]

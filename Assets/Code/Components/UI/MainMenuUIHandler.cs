@@ -26,6 +26,15 @@ public class MainMenuUIHandler : MonoBehaviour
     [Tooltip("The text displaying the current room's name")]
     public TMP_Text CurrentRoomNameText;
 
+    void Awake()
+    {
+        MainUI.SetActive(true);
+        SelectRoomUI.SetActive(false);
+        WaitingForPlayerUI.SetActive(false);
+
+        RoomInputField.text = "";
+    }
+
     public void EnterRoom()
     {
         Connector.JoinRoom(RoomInputField.text);

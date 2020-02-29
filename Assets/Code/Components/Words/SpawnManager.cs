@@ -9,6 +9,9 @@ using TMPro;
  */
 public class SpawnManager : MonoBehaviour
 {
+    [Tooltip("The photon view for this spawner")]
+    public PhotonView PView;
+
     [Tooltip("The transform within which words can spawn")]
     public RectTransform SpawnZone;
 
@@ -42,13 +45,13 @@ public class SpawnManager : MonoBehaviour
         m_spawnRate = SpawnRateRange.Max;
 
         StartCoroutine(UpdateVariables());
-        StartCoroutine(SpawnWord());
+        StartCoroutine(SpawnWordRoutine());
     }
 
     private IEnumerator UpdateVariables()
     {
-        while(true && ((SpeedUpWords && m_speed < SpeedRange.Max) || 
-                       (SpeedUpSpawns && m_spawnRate > SpawnRateRange.Min)))
+        while(PhotonNetwork.InRoom && ((SpeedUpWords && m_speed < SpeedRange.Max) || 
+                                       (SpeedUpSpawns && m_spawnRate > SpawnRateRange.Min)))
         {
             yield return new WaitForSeconds(0.25f);
 
@@ -57,24 +60,38 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnWord()
+    private IEnumerator SpawnWordRoutine()
     {
-        while(true)
+        while(PhotonNetwork.InRoom)
         {
             yield return new WaitForSeconds(m_spawnRate);
 
-            GameObject word = Dictionary.CreateWord();
+            WordWrapper generated = Dictionary.FetchWord();
+            float randomPosition = Random.Range(0f, 100f);
 
-            word.GetComponent<FallingWord>().Falling.speed = m_speed;
-
-            float wordLength = word.GetComponent<TMP_Text>().preferredWidth;
-            float randomMovement = RandomizeLocations ? Random.Range(0f, SpawnZone.rect.width - wordLength) : 0f;
-
-            if(randomMovement > (SpawnZone.rect.width - wordLength) / 2) 
-                randomMovement = (SpawnZone.rect.width - wordLength) / 2 - randomMovement;
-
-            word.transform.localPosition = new Vector3(SpawnZone.localPosition.x + randomMovement, 
-                                                       SpawnZone.localPosition.y);
+            PView.RPC("SpawnWord", RpcTarget.All, generated.Word.Text, generated.Difficulty, randomPosition);
         }
+    }
+
+    [PunRPC]
+    private void SpawnWord(string p_word, int p_difficulty, float p_randomPosition)
+    {
+        Word w = ScriptableObject.CreateInstance<Word>();
+        w.Text = p_word;
+
+        WordWrapper ww = new WordWrapper() { Word = w, Difficulty = p_difficulty, Probability = 0 };
+        GameObject word = Dictionary.InstantiateWord(ww);
+        FallingWord fWord = word.GetComponent<FallingWord>();
+
+        fWord.Falling.speed = m_speed;
+
+        float wordLength = fWord.Text.preferredWidth;
+        float randomMovement = RandomizeLocations ? (SpawnZone.rect.width - wordLength) * (p_randomPosition / 100f) : 0f;
+
+        if(randomMovement > (SpawnZone.rect.width - wordLength) / 2)
+            randomMovement = (SpawnZone.rect.width - wordLength) / 2 - randomMovement;
+
+        word.transform.localPosition = new Vector3(SpawnZone.localPosition.x + randomMovement,
+                                                   SpawnZone.localPosition.y);
     }
 }

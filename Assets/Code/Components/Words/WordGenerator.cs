@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 /*
  * This represents the word generator, it spawns words depending on a variety of variables
@@ -55,7 +56,7 @@ public class WordGenerator : MonoBehaviour
         }
     }
 
-    public GameObject CreateWord()
+    public WordWrapper FetchWord()
     {
         if(m_wordDictionary.Count == 0) Generate();
 
@@ -64,12 +65,17 @@ public class WordGenerator : MonoBehaviour
 
         m_wordDictionary.RemoveAt(selectedIndex);
 
+        return selected;
+    }
+
+    public GameObject InstantiateWord(WordWrapper p_word)
+    {
         GameObject go = Instantiate(wordPrefab, spawnParent);
         FallingWord word = go.GetComponent<FallingWord>();
 
         if(word)
         {
-            word.Init(selected, activeWordSet);
+            word.Init(p_word, activeWordSet);
             activeWordSet.Add(word);
         }
 
