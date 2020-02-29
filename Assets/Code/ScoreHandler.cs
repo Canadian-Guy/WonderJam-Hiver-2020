@@ -23,7 +23,7 @@ public class ScoreHandler : MonoBehaviour
 
     private PhotonView photonView;
 
-    private static int Cmpt = 0;
+    private static int Cmpt = 1;
 
     private bool IsItTheEndOfTimes = false;
 
