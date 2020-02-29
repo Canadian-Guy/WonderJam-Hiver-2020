@@ -212,6 +212,9 @@ MonoBehaviour:
   ScoreHandler: {fileID: 6713246508993325397}
   PView: {fileID: 0}
   ValidPlayerID: 1
+  PopSound: {fileID: 0}
+  KeystrokeSound: {fileID: 0}
+  InvalidSound: {fileID: 0}
 --- !u!114 &4822379277297080477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,7 +539,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3c0946dece90d1640b647ce70594c340, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -681,6 +684,7 @@ MonoBehaviour:
   Score: {fileID: 6713246508993325397}
   ActiveWordSet: {fileID: 11400000, guid: 0b67de80067e92744bc7f06b89a9f174, type: 2}
   ValidPlayerID: 1
+  ComboBreakSound: {fileID: 0}
 --- !u!1 &4822379278977408416
 GameObject:
   m_ObjectHideFlags: 0
