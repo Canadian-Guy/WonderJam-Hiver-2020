@@ -30,15 +30,8 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
         if (eventCode == 0)
         {
             Debug.Log("Event 0 received");
-            foreach (var player in PhotonNetwork.PlayerList)
-            {
-                if (player.ActorNumber != attackingPlayer)
-                {
-                    Players[player.ActorNumber - 1].ScoreHandler.PhotonIncreaseScore(-50000);
-                    break;
-                }
-            }
-            
+
+            Players[attackingPlayer == 1 ? 2 : 1].ScoreHandler.PhotonIncreaseScore(-50000);
         }
     }
 }
