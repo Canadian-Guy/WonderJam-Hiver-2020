@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 121}
+  m_AnchoredPosition: {x: 177, y: 160}
   m_SizeDelta: {x: 325, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4822379277297080545
@@ -212,6 +212,7 @@ MonoBehaviour:
   ScoreHandler: {fileID: 6713246508993325397}
   PView: {fileID: 0}
   ValidPlayerID: 1
+  typing: 0
   PopSound: {fileID: 0}
   KeystrokeSound: {fileID: 0}
   InvalidSound: {fileID: 0}
@@ -468,8 +469,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 169.97998, y: -298.5}
-  m_SizeDelta: {x: 340, y: 545.5}
+  m_AnchoredPosition: {x: -62, y: -298.5}
+  m_SizeDelta: {x: -124, y: 545.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4822379277991902204
 GameObject:

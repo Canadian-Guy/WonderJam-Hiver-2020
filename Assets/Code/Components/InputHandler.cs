@@ -61,6 +61,8 @@ public class InputHandler : MonoBehaviour
         PView.RPC("TypedWord", RpcTarget.All, inputField.text);
     }
 
+
+
     [PunRPC]
     private void TypedWord(string p_input)
     {
