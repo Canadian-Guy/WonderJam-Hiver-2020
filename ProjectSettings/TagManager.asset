@@ -43,12 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: HUD_UI
-    uniqueID: 3486093323
+  - name: CAT_UI
+    uniqueID: 970409143
     locked: 0
   - name: ENV_UI
     uniqueID: 3667024199
     locked: 0
-  - name: CAT_UI
-    uniqueID: 970409143
+  - name: HUD_UI
+    uniqueID: 3486093323
     locked: 0

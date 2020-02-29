@@ -12,7 +12,7 @@ public class FallingWord : MonoBehaviour
     [HideInInspector] public bool BrokeCombo; // always false unless the combo breaks with this word
     [HideInInspector] public bool RequiresDeletion;
 
-    [HideInInspector] public WordWrapper Word;
+    [HideInInspector] public WordWrapper Wrapper;
     [HideInInspector] public TMP_Text Text;
     [HideInInspector] public Falling Falling;
 
@@ -28,19 +28,19 @@ public class FallingWord : MonoBehaviour
 
     public bool Check(string p_string)
     {
-        return Word.Word && Word.Word.Text == p_string;
+        return Wrapper.Word && Wrapper.Word.Text == p_string;
     }
 
     public void Init(WordWrapper p_word, FallingWordSet p_activeWordSet)
     {
         m_activeWordSet = p_activeWordSet;
-        Word = p_word;
-        Text.text = Word.Word.Text;
+        Wrapper = p_word;
+        Text.text = Wrapper.Word.Text;
     }
 
     public int GetScore()
     {
-        return Word.Difficulty;
+        return Wrapper.Difficulty;
     }
 
     public void DestroyWord(bool p_breaksCombo)
