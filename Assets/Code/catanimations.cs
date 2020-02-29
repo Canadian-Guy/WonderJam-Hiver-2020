@@ -30,14 +30,5 @@ public class catanimations : MonoBehaviour
         {
             m_animator.SetBool("night", false);
         }
-
-        if (m_inputhandler.typing == true)
-        {
-            m_animator.SetBool("typing", true);
-        }
-        else
-        {
-            m_animator.SetBool("typing", false);
-        }
     }
 }
