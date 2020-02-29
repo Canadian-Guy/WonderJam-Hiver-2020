@@ -6,6 +6,8 @@ using MyBox;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
@@ -42,7 +44,6 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
         MainUI.SetActive(true);
         SelectRoomUI.SetActive(false);
         WaitingForPlayerUI.SetActive(false);
-        PhotonNetwork.AutomaticallySyncScene = true;
 
         RoomInputField.text = "";
     }
@@ -129,6 +130,7 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
             NewText.GetComponentInChildren<Text>().text = roomInfo.Name;
             NewText.transform.SetParent(FindContent(roomScrollRect.gameObject));
             NewText.transform.position = GetComponentInParent<Transform>().position;
+            NewText.GetComponent<Button>().onClick.AddListener(delegate{ Connector.JoinRoom(NewText.GetComponentInChildren<Text>().text); });
         }
     }
 
