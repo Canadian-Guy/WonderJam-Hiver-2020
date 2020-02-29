@@ -22,11 +22,14 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
 
     public void OnEvent(EventData photonEvent)
     {
-        if (photonEvent.CustomData == null)
+        if(photonEvent.CustomData == null || !(photonEvent.CustomData is int))
             return;
+
         int eventCode = (int)photonEvent.Code;
         int attackingPlayer = (int)photonEvent.CustomData;
+
         Debug.Log("Received Event : " + eventCode);
+
         if (eventCode == 0)
         {
             Debug.Log("Event 0 received");

@@ -110,19 +110,21 @@ public class InputHandler : MonoBehaviour
         {
             if(word.Check(p_input))
             {
-                if (word.tag == "BonusWord")
+                if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
                 {
-                    Debug.Log("Sending event code");
-                    m_foundWord = true;
-                    ScoreHandler.PhotonIncreaseScore(word.GetScore());
-                    PhotonNetwork.RaiseEvent((byte)word.Wrapper.Word.EventCode, PhotonNetwork.LocalPlayer.ActorNumber, RaiseEventOptions.Default, SendOptions.SendReliable);
-                    audioSource.PlayOneShot(PopSound);
-                }
-                else if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
-                {
-                    m_foundWord = true;
-                    ScoreHandler.PhotonIncreaseScore(word.GetScore());
-                    audioSource.PlayOneShot(PopSound);
+                    if(word.tag == "BonusWord")
+                    {
+                        Debug.Log("Sending event code");
+                        m_foundWord = true;
+                        ScoreHandler.PhotonIncreaseScore(word.GetScore());
+                        PhotonNetwork.RaiseEvent((byte) word.Wrapper.Word.EventCode, PhotonNetwork.LocalPlayer.ActorNumber, RaiseEventOptions.Default, SendOptions.SendReliable);
+                        audioSource.PlayOneShot(PopSound);
+                    } else
+                    {
+                        m_foundWord = true;
+                        ScoreHandler.PhotonIncreaseScore(word.GetScore());
+                        audioSource.PlayOneShot(PopSound);
+                    }
                 }
 
                 word.DestroyWord(false);
