@@ -35,6 +35,7 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
                 if (player.ActorNumber != attackingPlayer)
                 {
                     Players[player.ActorNumber - 1].ScoreHandler.PhotonIncreaseScore(-50000);
+                    break;
                 }
             }
             
