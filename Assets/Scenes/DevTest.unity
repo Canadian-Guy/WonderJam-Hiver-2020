@@ -211,6 +211,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 860400936}
     m_Modifications:
+    - target: {fileID: 2969098644469506184, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -170
+      objectReference: {fileID: 0}
     - target: {fileID: 4508656687073708035, guid: 1e4d23e768bafc945b4541d289d553af,
         type: 3}
       propertyPath: ActiveWordSet
