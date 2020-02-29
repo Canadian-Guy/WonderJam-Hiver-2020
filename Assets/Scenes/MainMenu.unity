@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenuHandler: {fileID: 1802239264}
+  RoomInputField: {fileID: 0}
 --- !u!4 &598822564
 Transform:
   m_ObjectHideFlags: 0

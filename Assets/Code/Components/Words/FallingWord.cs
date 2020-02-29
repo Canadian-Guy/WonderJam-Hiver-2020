@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using Photon.Pun;
 
 /*
  * This class represents a word falling on the screen.
