@@ -80,13 +80,13 @@ public class ScoreHandler : MonoBehaviour
 
             if (_comboProgress >= m_combo + 1 + comboPrerequisiteSupp)
             {
+                _comboProgress = 0;
+                ++m_combo;
+
                 if (m_combo == maxCombo.Value)
                     comboAnimator.SetTrigger("EnterFrenzy");
                 else
                     comboAnimator.SetTrigger("Pulse");
-
-                _comboProgress = 0;
-                m_combo++;
             }
         }
 
