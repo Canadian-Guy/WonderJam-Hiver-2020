@@ -13,6 +13,9 @@ public class InputHandler : MonoBehaviour
     public PhotonView PView;
     public int ValidPlayerID;
 
+    //for animations
+    [HideInInspector] public bool typing;
+
     [Tooltip("Sound played when a valid word is typed")]
     public AudioClip PopSound;
     

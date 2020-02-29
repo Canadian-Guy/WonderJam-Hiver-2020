@@ -7,6 +7,8 @@ public class catanimations : MonoBehaviour
 
     public Animator m_animator;
 
+    public InputHandler m_inputhandler;
+
     public Timer m_timer;
 
     
@@ -27,6 +29,15 @@ public class catanimations : MonoBehaviour
         else
         {
             m_animator.SetBool("night", false);
+        }
+
+        if (m_inputhandler.typing == true)
+        {
+            m_animator.SetBool("typing", true);
+        }
+        else
+        {
+            m_animator.SetBool("typing", false);
         }
     }
 }
