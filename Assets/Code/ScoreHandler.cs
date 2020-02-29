@@ -23,6 +23,8 @@ public class ScoreHandler : MonoBehaviour
 
     private PhotonView photonView;
 
+    private static int Cmpt = 0;
+
     private bool IsItTheEndOfTimes = false;
 
     void Start()
@@ -30,6 +32,7 @@ public class ScoreHandler : MonoBehaviour
         Score = 0;
         ScoreText.text = Score.ToString();
         photonView = gameObject.AddComponent<PhotonView>();
+        photonView.ViewID = Cmpt++;
         StartCoroutine(UpdateScore());
     }
 
