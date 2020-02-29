@@ -29,6 +29,9 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log(Night);
+
         //On arrete de tick à 0. 
         if(CurrentTime > 0)
         {
