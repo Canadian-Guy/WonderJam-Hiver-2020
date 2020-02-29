@@ -9,6 +9,9 @@ using Photon.Pun;
 [RequireComponent(typeof(TMP_Text), typeof(Falling)), DisallowMultipleComponent]
 public class FallingWord : MonoBehaviour
 {
+    [HideInInspector] public bool BrokeCombo; // always false unless the combo breaks with this word
+    [HideInInspector] public bool RequiresDeletion;
+
     [HideInInspector] public WordWrapper Word;
     [HideInInspector] public TMP_Text Text;
     [HideInInspector] public Falling Falling;
@@ -40,9 +43,9 @@ public class FallingWord : MonoBehaviour
         return Word.Difficulty;
     }
 
-    public void DestroyWord()
+    public void DestroyWord(bool p_breaksCombo)
     {
-        m_activeWordSet.Remove(this);
-        Destroy(gameObject);
+        BrokeCombo = p_breaksCombo;
+        RequiresDeletion = true;
     }
 }

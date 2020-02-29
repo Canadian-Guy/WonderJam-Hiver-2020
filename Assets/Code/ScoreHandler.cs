@@ -17,6 +17,9 @@ public class ScoreHandler : MonoBehaviour
     [Tooltip("Text component that displays the score.")]
     public TMP_Text ScoreText;
 
+    [Tooltip("Text component that displays the combo.")]
+    public TMP_Text ComboText;
+
     [Tooltip("Score increment tick speed, in seconds")]
     public float Speed = 0;
 
@@ -39,6 +42,20 @@ public class ScoreHandler : MonoBehaviour
     public void PhotonIncreaseScore(int p_scoreToAdd)
     {
         photonView.RPC("AddScore", RpcTarget.All,p_scoreToAdd);
+        photonView.RPC("UpdateCombo", RpcTarget.All, m_combo + 1);
+    }
+
+    public void BreakCombo()
+    {
+        photonView.RPC("UpdateCombo", RpcTarget.All, 1);
+    }
+
+    [PunRPC]
+    public void UpdateCombo(int p_combo)
+    {
+        m_combo = p_combo;
+
+        ComboText.text = m_combo + "x";
     }
 
     [PunRPC]

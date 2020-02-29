@@ -3,6 +3,7 @@ using TMPro;
 using Photon.Pun;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections;
 
 public class InputHandler : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class InputHandler : MonoBehaviour
                 if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
                     ScoreHandler.PhotonIncreaseScore(word.GetScore());
 
-                word.DestroyWord();
+                word.DestroyWord(false);
             }
         }
     }
