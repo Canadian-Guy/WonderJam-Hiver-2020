@@ -21,6 +21,7 @@ public class ScoreHandler : MonoBehaviour
     public TMP_Text ComboText;
     public MyBox.OptionalInt maxCombo;
     public int comboPrerequisiteSupp = 3;
+    public Animator comboAnimator;
 
     [Tooltip("Score increment tick speed, in seconds")]
     public float Speed = 0;
@@ -40,6 +41,8 @@ public class ScoreHandler : MonoBehaviour
         Score = 0;
         ScoreText.text = Score.ToString();
         StartCoroutine(UpdateScore());
+
+        ComboText.text = "x" + m_combo;
     }
 
     public void PhotonIncreaseScore(int p_scoreToAdd)
@@ -58,8 +61,14 @@ public class ScoreHandler : MonoBehaviour
     {
         if (p_break)
         {
-            m_combo = 1;
+            if (m_combo > 1)
+            {
+                comboAnimator.SetTrigger("Shake");
+                m_combo = 1;
+            }
+
             _comboProgress = 0;
+
         }
         else if (!maxCombo.IsSet || m_combo < maxCombo.Value)
         {
@@ -67,8 +76,9 @@ public class ScoreHandler : MonoBehaviour
 
             if (_comboProgress >= m_combo + 1 + comboPrerequisiteSupp)
             {
-                m_combo++;
+                comboAnimator.SetTrigger("Pulse");
                 _comboProgress = 0;
+                m_combo++;
             }
         }
 
