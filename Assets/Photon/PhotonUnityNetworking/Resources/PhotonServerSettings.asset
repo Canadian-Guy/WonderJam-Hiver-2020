@@ -35,5 +35,8 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - AddScore
+  - SpawnWord
+  - LocalDestroy
+  - TypedWord
   DisableAutoOpenWizard: 1
   ShowSettings: 1
