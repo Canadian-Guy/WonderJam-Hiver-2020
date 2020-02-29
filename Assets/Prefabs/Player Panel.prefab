@@ -212,6 +212,9 @@ MonoBehaviour:
   ScoreHandler: {fileID: 6713246508993325397}
   PView: {fileID: 0}
   ValidPlayerID: 1
+  PopSound: {fileID: 0}
+  KeystrokeSound: {fileID: 0}
+  InvalidSound: {fileID: 0}
 --- !u!114 &4822379277297080477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,11 +467,11 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 169.97998, y: -298.5}
-  m_SizeDelta: {x: 340, y: 545.5}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 340, y: 0}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &4822379277991902204
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +690,7 @@ MonoBehaviour:
   Score: {fileID: 6713246508993325397}
   ActiveWordSet: {fileID: 11400000, guid: 0b67de80067e92744bc7f06b89a9f174, type: 2}
   ValidPlayerID: 1
+  ComboBreakSound: {fileID: 0}
 --- !u!1 &4822379278977408416
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +957,7 @@ PrefabInstance:
     - target: {fileID: 5662234826631376824, guid: 50e0efbe59436aa45a7ac1c0d5d8d33b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 5662234826631376824, guid: 50e0efbe59436aa45a7ac1c0d5d8d33b,
         type: 3}
