@@ -23,6 +23,8 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
 
     public void OnEvent(EventData photonEvent)
     {
+        if (photonEvent.CustomData == null)
+            return;
         int eventCode = (int)photonEvent.Code;
         int attackingPlayer = (int)photonEvent.CustomData;
         Debug.Log("Received Event : " + eventCode);
