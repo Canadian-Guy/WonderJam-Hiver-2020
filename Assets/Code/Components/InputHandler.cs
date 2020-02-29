@@ -61,22 +61,18 @@ public class InputHandler : MonoBehaviour
 
     public void HighlightWords()
     {
-        for (int i = activeWordSet.Count() - 1; i >= 0; i--)
+        foreach(FallingWord word in getAllActiveWords())
         {
-            FallingWord fw = activeWordSet._items[i];
-
-            if (inputField.text != "" && fw.Wrapper.Word.Text.StartsWith(inputField.text))
+            if(inputField.text != "" && word.Wrapper.Word.Text.StartsWith(inputField.text))
             {
                 string part1 = inputField.text;
-                string part2 = fw.Wrapper.Word.Text.Substring(part1.Length, fw.Wrapper.Word.Text.Length - part1.Length);
+                string part2 = word.Wrapper.Word.Text.Substring(part1.Length, word.Wrapper.Word.Text.Length - part1.Length);
 
-                fw.Text.text = "<color=#" + ColorUtility.ToHtmlStringRGB(highlightColor) + ">" + part1 + "</color>" + part2;
+                word.Text.text = "<color=#" + ColorUtility.ToHtmlStringRGB(highlightColor) + ">" + part1 + "</color>" + part2;
             }
-            else
-                fw.Text.text = fw.Wrapper.Word.Text;
+            else word.Text.text = word.Wrapper.Word.Text;
         }
     }
-
 
     public void ConfirmInput()
     {
