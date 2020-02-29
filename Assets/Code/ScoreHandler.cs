@@ -63,7 +63,11 @@ public class ScoreHandler : MonoBehaviour
         {
             if (m_combo > 1)
             {
-                comboAnimator.SetTrigger("Shake");
+                if (maxCombo.IsSet && m_combo == maxCombo.Value)
+                    comboAnimator.SetTrigger("ExitFrenzy");
+                else
+                    comboAnimator.SetTrigger("Shake");
+
                 m_combo = 1;
             }
 
@@ -76,13 +80,20 @@ public class ScoreHandler : MonoBehaviour
 
             if (_comboProgress >= m_combo + 1 + comboPrerequisiteSupp)
             {
-                comboAnimator.SetTrigger("Pulse");
+                if (m_combo == maxCombo.Value)
+                    comboAnimator.SetTrigger("EnterFrenzy");
+                else
+                    comboAnimator.SetTrigger("Pulse");
+
                 _comboProgress = 0;
                 m_combo++;
             }
         }
 
-        ComboText.text = "x" + m_combo;
+        if (m_combo == maxCombo.Value)
+            ComboText.text = "FRENZY";
+        else
+            ComboText.text = "x" + m_combo;
     }
 
     [PunRPC]
