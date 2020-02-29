@@ -211,6 +211,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 860400936}
     m_Modifications:
+    - target: {fileID: 4508656687073708035, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: ActiveWordSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 83ebe7735de05094ea57022902f8b590,
+        type: 2}
+    - target: {fileID: 4508656687073708035, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: ValidPlayerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4822379277297080476, guid: 1e4d23e768bafc945b4541d289d553af,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -878,6 +889,7 @@ MonoBehaviour:
   TimeText: {fileID: 1088875482}
   TimeMod: 1
   EndGameHandler: {fileID: 1113965490}
+  Night: 0
 --- !u!1 &1113965489
 GameObject:
   m_ObjectHideFlags: 0
