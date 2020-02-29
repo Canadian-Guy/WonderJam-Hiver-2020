@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        TimeText.text = CurrentTime.ToString("0.0");
+        TimeText.text = CurrentTime.ToString("0") + "h left!";
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class Timer : MonoBehaviour
             {
                 CurrentTime = 0;
             }
-            TimeText.text = CurrentTime.ToString("0.0");
+            TimeText.text = CurrentTime.ToString("0") + "h left!";
         }
 
         //la jam commence a 16H
