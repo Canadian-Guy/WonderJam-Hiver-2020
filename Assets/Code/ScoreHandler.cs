@@ -27,6 +27,8 @@ public class ScoreHandler : MonoBehaviour
 
     private bool IsItTheEndOfTimes = false;
 
+    private int m_combo = 1;
+
     void Start()
     {
         Score = 0;
@@ -36,15 +38,15 @@ public class ScoreHandler : MonoBehaviour
         StartCoroutine(UpdateScore());
     }
 
-    public void PhotonIncreasePlayer1Score()
+    public void PhotonIncreaseScore(int p_scoreToAdd)
     {
-        photonView.RPC("AddScore", RpcTarget.All, 5, 1);
+        photonView.RPC("AddScore", RpcTarget.All,p_scoreToAdd);
     }
 
     [PunRPC]
-    public void AddScore(int p_score, int p_combo = 1)
+    public void AddScore(int p_score)
     {
-        Score += (p_score * p_combo);
+        Score += (p_score * m_combo);
         
         //ScoreText.text = Score.ToString();
     }

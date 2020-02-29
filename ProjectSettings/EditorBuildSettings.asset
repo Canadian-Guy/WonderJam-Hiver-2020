@@ -11,16 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DevTest.unity
     guid: b33115f1238304640ba1cea36d47efee
-  - enabled: 1
-    path: Assets/Scenes/DevTestHATS_ONLY.unity
-    guid: 3231e3ab82b626c45820711cf4578fe5
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/MultiTest.unity
-    guid: 4eabc823fd8d95249940726cf7706060
-  - enabled: 0
-    path: Assets/Scenes/TestScore.unity
-    guid: 6a1a36d10080d6a42a83f3601f1689ec
   m_configObjects: {}
