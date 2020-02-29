@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -11,6 +12,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
 {
     RoomOptions m_roomOptions = new RoomOptions();
     public InputField RoomInputField;
+    private byte evCode = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,10 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            PhotonNetwork.RaiseEvent(evCode, null, new RaiseEventOptions(){Receivers = ReceiverGroup.All}, new SendOptions(){Reliability = true});
+        }
     }
 
     public override void OnCreatedRoom()

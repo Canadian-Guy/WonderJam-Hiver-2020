@@ -34,5 +34,9 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - IncreasePlayer1Score
+  - IncreasePlayer2Score
+  - IncreasePlayer1ScoreButton
+  - IncreasePlayer2ScoreButton
   DisableAutoOpenWizard: 1
   ShowSettings: 1
