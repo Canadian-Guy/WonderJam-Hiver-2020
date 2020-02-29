@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
+using ExitGames.Client.Photon;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 
@@ -20,18 +23,33 @@ public class ScoreHandler : MonoBehaviour
     [Tooltip("Score tick increments")]
     public int Increment = 0;
 
+    private PhotonView photonView;
+
+    private static int Cmpt = 1;
+
     private bool IsItTheEndOfTimes = false;
+
+    private int m_combo = 1;
 
     void Start()
     {
         Score = 0;
         ScoreText.text = Score.ToString();
+        photonView = gameObject.AddComponent<PhotonView>();
+        photonView.ViewID = Cmpt++;
         StartCoroutine(UpdateScore());
     }
 
-    public void AddScore(int p_score, int p_combo = 1)
+    public void PhotonIncreaseScore(int p_scoreToAdd)
     {
-        Score += (p_score * p_combo);
+        photonView.RPC("AddScore", RpcTarget.All,p_scoreToAdd);
+    }
+
+    [PunRPC]
+    public void AddScore(int p_score)
+    {
+        Score += (p_score * m_combo);
+        
         //ScoreText.text = Score.ToString();
     }
 
@@ -68,11 +86,17 @@ public class ScoreHandler : MonoBehaviour
 
     public void DEBUG_AddScoreCombo0()
     {
-        AddScore(5);
+        PhotonIncreaseScore(5);
     }
 
     public void DEBUG_AddScoreCombo5()
     {
-        AddScore(5, 5);
+        PhotonIncreaseScore(25);
+    }
+
+    public void Attack()
+    {
+        byte evCode = 0;
+        PhotonNetwork.RaiseEvent(evCode, photonView.ViewID, RaiseEventOptions.Default, SendOptions.SendReliable);
     }
 }
