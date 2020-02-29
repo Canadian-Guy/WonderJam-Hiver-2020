@@ -27,8 +27,9 @@ public class Multi : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        m_testText.GetComponent<TMP_Text>().text =
-            "Number of players currently in the room : " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+        if(PhotonNetwork.CurrentRoom != null)
+            m_testText.GetComponent<TMP_Text>().text =
+                "Number of players currently in the room : " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
     }
 
     public override void OnCreatedRoom()
