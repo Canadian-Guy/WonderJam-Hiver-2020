@@ -120,7 +120,6 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
     {
         Debug.Log("RoomListUpdated");
         print(roomList.Count + " Rooms");
-        base.OnRoomListUpdate(roomList);
         roomScrollRect = RoomList.GetComponent<ScrollRect>();
         foreach (RoomInfo roomInfo in roomList)
         {
