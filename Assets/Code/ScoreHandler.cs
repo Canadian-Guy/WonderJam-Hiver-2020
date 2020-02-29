@@ -19,6 +19,8 @@ public class ScoreHandler : MonoBehaviour
 
     [Tooltip("Text component that displays the combo.")]
     public TMP_Text ComboText;
+    public MyBox.OptionalInt maxCombo;
+    public int comboPrerequisiteSupp = 3;
 
     [Tooltip("Score increment tick speed, in seconds")]
     public float Speed = 0;
@@ -31,6 +33,7 @@ public class ScoreHandler : MonoBehaviour
     private bool IsItTheEndOfTimes = false;
 
     private int m_combo = 1;
+    private int _comboProgress = 0;
 
     void Start()
     {
@@ -41,21 +44,35 @@ public class ScoreHandler : MonoBehaviour
 
     public void PhotonIncreaseScore(int p_scoreToAdd)
     {
-        photonView.RPC("AddScore", RpcTarget.All,p_scoreToAdd);
-        photonView.RPC("UpdateCombo", RpcTarget.All, m_combo + 1);
+        photonView.RPC("AddScore", RpcTarget.All, p_scoreToAdd);
+        photonView.RPC("UpdateCombo", RpcTarget.All, false);
     }
 
     public void BreakCombo()
     {
-        photonView.RPC("UpdateCombo", RpcTarget.All, 1);
+        photonView.RPC("UpdateCombo", RpcTarget.All, true);
     }
 
     [PunRPC]
-    public void UpdateCombo(int p_combo)
+    public void UpdateCombo(bool p_break)
     {
-        m_combo = p_combo;
+        if (p_break)
+        {
+            m_combo = 1;
+            _comboProgress = 0;
+        }
+        else if (!maxCombo.IsSet || m_combo < maxCombo.Value)
+        {
+            ++_comboProgress;
 
-        ComboText.text = m_combo + "x";
+            if (_comboProgress >= m_combo + 1 + comboPrerequisiteSupp)
+            {
+                m_combo++;
+                _comboProgress = 0;
+            }
+        }
+
+        ComboText.text = "x" + m_combo;
     }
 
     [PunRPC]
