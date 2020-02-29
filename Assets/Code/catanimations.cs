@@ -11,15 +11,6 @@ public class catanimations : MonoBehaviour
 
     public Timer m_timer;
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        m_animator.SetBool("typing", false);//only for RN
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (m_timer.Night == true)
