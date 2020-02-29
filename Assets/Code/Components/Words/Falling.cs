@@ -14,11 +14,6 @@ public class Falling : MonoBehaviour
 
     private Vector2 _movement;
 
-    private void OnCollisionEnter()
-    {
-        Debug.Log("BOOP");
-    }
-
     private void Update()
     {
         _movement = (reversed ? Vector2.up : Vector2.down) * (frozen ? 0f : speed);

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2513643155362137369}
   - component: {fileID: 2513643155362137370}
   - component: {fileID: 2513643155362137574}
-  - component: {fileID: 9139762280077561738}
+  - component: {fileID: 5132486011120266040}
   m_Layer: 8
   m_Name: Word
   m_TagString: Untagged
@@ -249,7 +249,7 @@ MonoBehaviour:
   speed: 0.5
   frozen: 0
   reversed: 0
---- !u!114 &9139762280077561738
+--- !u!114 &5132486011120266040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,8 +258,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2513643155362137568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a440f3fe538db4d9d9e2184b321b85, type: 3}
+  m_Script: {fileID: 11500000, guid: a38dd851a3ecbea4d888d013aa977967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: {fileID: 2513643155362137572}
-  word: {fileID: 0}
+  Word:
+    Word: {fileID: 0}
+    Difficulty: 0
+    Probability: 0
+  Text: {fileID: 0}
+  Falling: {fileID: 0}

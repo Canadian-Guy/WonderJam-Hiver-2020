@@ -11,7 +11,7 @@ public class WordGenerator : MonoBehaviour
     [Tooltip("This generator's configuration values. Will update the generator if hotswappped")]
     public WordGenConfig GeneratorConfiguration;
 
-    public GameObjectSet activeWords;
+    public FallingWordSet activeWordSet;
     public GameObject wordPrefab;
     public Transform spawnParent;
 
@@ -19,7 +19,6 @@ public class WordGenerator : MonoBehaviour
     private int CurrentDifficulty;
 
     [SerializeField] private List<WordWrapper> m_wordDictionary;
-    //[SerializeField] private List<WordWrapper> m_activeWords;
 
     void Start()
     {
@@ -56,7 +55,7 @@ public class WordGenerator : MonoBehaviour
         }
     }
 
-    public void CreateWord()
+    public GameObject CreateWord()
     {
         if(m_wordDictionary.Count == 0) Generate();
 
@@ -66,13 +65,15 @@ public class WordGenerator : MonoBehaviour
         m_wordDictionary.RemoveAt(selectedIndex);
 
         GameObject go = Instantiate(wordPrefab, spawnParent);
-        SpellChecker sc = go.GetComponent<SpellChecker>();
+        FallingWord word = go.GetComponent<FallingWord>();
 
-        if (sc) sc.Init(selected.Word);
+        if(word)
+        {
+            word.Init(selected, activeWordSet);
+            activeWordSet.Add(word);
+        }
 
-        go.transform.position = Vector3.zero; // TODO Set random position in predefined spawn area
-
-        activeWords.Add(go);
+        return go;
     }
 
     private void Generate()
