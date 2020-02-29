@@ -23,9 +23,7 @@ public class ScoreHandler : MonoBehaviour
     [Tooltip("Score tick increments")]
     public int Increment = 0;
 
-    private PhotonView photonView;
-
-    private static int Cmpt = 1;
+    public PhotonView photonView;
 
     private bool IsItTheEndOfTimes = false;
 
@@ -35,8 +33,6 @@ public class ScoreHandler : MonoBehaviour
     {
         Score = 0;
         ScoreText.text = Score.ToString();
-        photonView = gameObject.AddComponent<PhotonView>();
-        photonView.ViewID = Cmpt++;
         StartCoroutine(UpdateScore());
     }
 

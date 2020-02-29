@@ -15,6 +15,10 @@ public class Timer : MonoBehaviour
 
     [Tooltip("Ajustment to the time tick. 2 is 2x faster")]
     public float TimeMod = 1;
+
+    [Tooltip("The handler used to transition between the game and the end screen")]
+    public EndGameHandler EndGameHandler;
+
     void Start()
     {
         TimeText.text = CurrentTime.ToString("0.0");
@@ -36,9 +40,7 @@ public class Timer : MonoBehaviour
 
         if(CurrentTime == 0)
         {
-            //TODO: Appeler le script qui s'occupe de la fin de la partie pour trigger la fin de la partie :)
+            EndGameHandler.EndGame();
         }
-
-
     }
 }
