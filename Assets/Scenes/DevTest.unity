@@ -570,6 +570,11 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4675605321518997561, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 33955421}
     - target: {fileID: 5222212713903284127, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: m_textInfo.characterCount
