@@ -226,6 +226,7 @@ MonoBehaviour:
   PopSound: {fileID: 0}
   KeystrokeSound: {fileID: 0}
   InvalidSound: {fileID: 0}
+  highlightColor: {r: 0.88235295, g: 0.88235295, b: 0.09803922, a: 0}
 --- !u!114 &4822379277297080477
 MonoBehaviour:
   m_ObjectHideFlags: 0
