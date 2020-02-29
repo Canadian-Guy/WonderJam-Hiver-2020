@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+
 /*
  * Simple class that handles score stuff
  * (Adding, displaying, updating the display)
@@ -9,15 +10,18 @@ public class ScoreHandler : MonoBehaviour
 {
     [Tooltip("This is the current score!")]
     public int Score = 0;
+
     [Tooltip("Text component that displays the score.")]
     public TMP_Text ScoreText;
+
     [Tooltip("Score increment tick speed, in seconds")]
     public float Speed = 0;
+
     [Tooltip("Score tick increments")]
     public int Increment = 0;
+
     private bool IsItTheEndOfTimes = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         Score = 0;
