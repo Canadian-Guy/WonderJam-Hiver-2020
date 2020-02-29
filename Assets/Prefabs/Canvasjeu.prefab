@@ -1359,6 +1359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 4822379277989130054, guid: 1e4d23e768bafc945b4541d289d553af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4822379277989130055, guid: 1e4d23e768bafc945b4541d289d553af,
         type: 3}
       propertyPath: m_LocalPosition.x
