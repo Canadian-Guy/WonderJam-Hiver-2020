@@ -772,6 +772,12 @@ PrefabInstance:
       propertyPath: highlightColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2053422388597907395, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: activeWordSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 83ebe7735de05094ea57022902f8b590,
+        type: 2}
     - target: {fileID: 2621617931304201215, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: m_timer
