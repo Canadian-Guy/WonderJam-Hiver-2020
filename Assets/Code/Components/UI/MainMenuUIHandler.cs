@@ -129,6 +129,9 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
             NewText.GetComponentInChildren<Text>().text = roomInfo.Name;
             NewText.transform.SetParent(FindContent(roomScrollRect.gameObject));
             NewText.transform.position = GetComponentInParent<Transform>().position;
+            RectTransform rt = NewText.GetComponentInChildren<RectTransform>();
+            rt.sizeDelta = new Vector2(gameObject.GetComponentInParent<RectTransform>().rect.width, 60);
+            NewText.GetComponentInChildren<Text>().resizeTextForBestFit = true;
             NewText.GetComponent<Button>().onClick.AddListener(delegate{ Connector.JoinRoom(NewText.GetComponentInChildren<Text>().text); });
         }
     }
