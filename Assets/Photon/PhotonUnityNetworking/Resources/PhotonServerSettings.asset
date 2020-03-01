@@ -42,5 +42,7 @@ MonoBehaviour:
   - FreezeWords
   - SlowWords
   - ApplyMultSpeedToWords
+  - UpdateInputField
+  - TransformWordsIntoWord
   DisableAutoOpenWizard: 1
   ShowSettings: 1

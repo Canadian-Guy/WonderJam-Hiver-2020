@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a4fc6415d04c94ab32321fe8776bce, type: 3}
   m_Name: BonusWordConfig
   m_EditorClassIdentifier: 
-  DictionarySize: 50
+  DictionarySize: 100
   TimeToReachDiffCap: 96
   Words:
   - Word: {fileID: 11400000, guid: 4b0c699a072c5714fb37bf426ec4f877, type: 2}
@@ -40,5 +40,8 @@ MonoBehaviour:
     Difficulty: 1
     Probability: 100
   - Word: {fileID: 11400000, guid: 1f31da7d7194a0f4aaf1db13a5617b28, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: dcb2c276cc733d5489d823c89fad1c3a, type: 2}
     Difficulty: 1
     Probability: 100

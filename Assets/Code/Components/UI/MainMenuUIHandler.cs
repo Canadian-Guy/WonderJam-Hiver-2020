@@ -1,17 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using ExitGames.Client.Photon;
-using MyBox;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
-using Image = UnityEngine.UI.Image;
 
 /*
  * Handles all UI code calls in the main menu.
@@ -33,8 +28,14 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
     [Tooltip("The main menu's waiting for player UI")]
     public GameObject WaitingForPlayerUI;
 
+    [Tooltip("The main menu's Credits UI")]
+    public GameObject CreditsUI;
+
     [Tooltip("The text displaying the current room's name")]
     public TMP_Text CurrentRoomNameText;
+
+    [Tooltip("The prefab used to spawn a room list button")]
+    public GameObject RoomListButtonPrefab;
 
     public GameObject RoomList;
     private ScrollRect roomScrollRect;
@@ -45,6 +46,7 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
         MainUI.SetActive(true);
         SelectRoomUI.SetActive(false);
         WaitingForPlayerUI.SetActive(false);
+        CreditsUI.SetActive(false);
 
         RoomInputField.text = "";
     }
@@ -76,10 +78,10 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
     {
         while(PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom.PlayerCount < 2)
         {
-            yield return new WaitForSecondsRealtime(0.5f);
+            yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        if(PhotonNetwork.InRoom) PhotonNetwork.LoadLevel(1);
+        PhotonNetwork.LoadLevel(1);
     }
 
     public void RoomFail()
@@ -130,18 +132,13 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
             {
                 if (roomInfo.IsVisible == true)
                 {
-                    DefaultControls.Resources TempResource = new DefaultControls.Resources();
-                    GameObject NewText = DefaultControls.CreateButton(TempResource);
-                    NewText.AddComponent<LayoutElement>();
-                    NewText.GetComponentInChildren<Text>().text = roomInfo.Name;
-                    NewText.transform.SetParent(content.GetComponent<RectTransform>());
-                    NewText.transform.position = GetComponentInParent<Transform>().position;
-                    RectTransform rt = NewText.GetComponentInChildren<RectTransform>();
-                    rt.sizeDelta = new Vector2(gameObject.GetComponentInParent<RectTransform>().rect.width, 60);
-                    NewText.GetComponentInChildren<Text>().resizeTextForBestFit = true;
+                    GameObject NewText = Instantiate(RoomListButtonPrefab, content.GetComponent<RectTransform>());
+
+                    NewText.GetComponentInChildren<TMP_Text>().text = roomInfo.Name;
+
                     NewText.GetComponent<Button>().onClick.AddListener(delegate
                     {
-                        Connector.JoinRoom(NewText.GetComponentInChildren<Text>().text);
+                        Connector.JoinRoom(roomInfo.Name);
                     });
                 }
             }
