@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -13,19 +14,27 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     RoomOptions m_roomOptions = new RoomOptions();
     public MainMenuUIHandler MainMenuHandler;
     public InputField RoomInputField;
+    public Timer Timer;
     private byte evCode = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
-        m_roomOptions.IsVisible = false;
+        m_roomOptions.IsVisible = true;
         m_roomOptions.MaxPlayers = 2;
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster() was called by PUN.");
+    }
+
+    public override void OnJoinedLobby()
+    {
+        base.OnJoinedLobby();
+        Debug.Log("Lobby Joined");
     }
 
     public void JoinRoom(string p_room)
@@ -36,15 +45,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            PhotonNetwork.RaiseEvent(evCode, null, new RaiseEventOptions(){Receivers = ReceiverGroup.All}, new SendOptions(){Reliability = true});
-        }
+        PhotonNetwork.LoadLevel(0);
     }
 
     public override void OnCreatedRoom()
@@ -70,5 +71,13 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
         Debug.Log("Room join failed");
 
         MainMenuHandler.RoomFail();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        if(Timer && Timer.CurrentTime <= 1.0f) return;
+
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel(0);
     }
 }

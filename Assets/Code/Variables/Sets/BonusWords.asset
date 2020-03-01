@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d359079b4b51308448844f099f583317, type: 3}
-  m_Name: Delete
+  m_Script: {fileID: 11500000, guid: 79846b1b049c5494e9fce4572b102bed, type: 3}
+  m_Name: BonusWords
   m_EditorClassIdentifier: 
-  Text: delete
-  EventCode: 0
-  Points: 6
+  _items: []

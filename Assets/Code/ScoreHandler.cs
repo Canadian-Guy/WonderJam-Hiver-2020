@@ -136,16 +136,6 @@ public class ScoreHandler : MonoBehaviour
         }
     }
 
-    public void DEBUG_AddScoreCombo0()
-    {
-        PhotonIncreaseScore(5);
-    }
-
-    public void DEBUG_AddScoreCombo5()
-    {
-        PhotonIncreaseScore(25);
-    }
-
     public void Attack()
     {
         byte evCode = 0;
