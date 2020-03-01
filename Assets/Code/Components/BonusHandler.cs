@@ -32,6 +32,24 @@ public class BonusHandler : MonoBehaviour
             word.Falling.frozen = true;
     }
 
+    public void TransformAllWordsIntoWord(string p_word, int p_points)
+    {
+        PView.RPC("TransformWordsIntoWord", RpcTarget.All, p_word, p_points);
+    }
+
+    [PunRPC]
+    private void TransformWordsIntoWord(string p_word, int p_points)
+    {
+        Word w = ScriptableObject.CreateInstance<Word>();
+
+        w.Text = p_word;
+        w.Points = p_points;
+        w.EventCode = 0;
+
+        foreach(FallingWord word in ActiveWordsSet._items)
+            word.ChangeWord(w);
+    }
+
     public void ApplyMultSpeedToActiveWords(float p_multiplier)
     {
         PView.RPC("ApplyMultSpeedToWords", RpcTarget.All, p_multiplier);
