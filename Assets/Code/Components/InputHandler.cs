@@ -61,6 +61,8 @@ public class InputHandler : MonoBehaviour
 
     public void HighlightWords()
     {
+        if(!inputField.interactable) return;
+
         foreach(FallingWord word in getAllActiveWords())
         {
             if(inputField.text != "" && word.Wrapper.Word.Text.StartsWith(inputField.text))
