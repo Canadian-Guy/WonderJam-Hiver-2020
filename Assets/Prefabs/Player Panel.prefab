@@ -872,8 +872,8 @@ MonoBehaviour:
   ComboText: {fileID: 5365644130084801441}
   maxCombo:
     IsSet: 1
-    Value: 6
-  comboPrerequisiteSupp: 2
+    Value: 5
+  comboPrerequisiteSupp: 0
   comboAnimator: {fileID: 5476512150339177756}
   Speed: 0.01
   Increment: 2
