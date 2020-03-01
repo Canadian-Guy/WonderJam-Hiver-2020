@@ -169,9 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4888e17e528f724fac9c5226a21b909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentTime: 96
+  CurrentTime: 48
   TimeText: {fileID: 481570551471376429}
-  TimeMod: 1
+  TimeMod: 0.5
   EndGameHandler: {fileID: 0}
   Night: 0
 --- !u!1 &877421242563650464

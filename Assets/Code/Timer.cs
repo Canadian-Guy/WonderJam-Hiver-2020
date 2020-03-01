@@ -45,22 +45,22 @@ public class Timer : MonoBehaviour
         }
 
         //la jam commence a 16H
-        if(CurrentTime < 90 && CurrentTime > 70)
+        if(CurrentTime < 45 && CurrentTime > 35)
         { //si le temps est en dessous de 90 c'est la nuit 22H à 8H
             Night = true;
         }
 
-        if(CurrentTime < 70 && CurrentTime > 42)
+        if(CurrentTime < 35 && CurrentTime > 21)
         { //si le temps est en dessous de 70 mais au dessus de 42 c'est le jour de 8H à 22H
             Night = false;
         }
 
-        if(CurrentTime < 42 && CurrentTime > 22)
+        if(CurrentTime < 21 && CurrentTime > 11)
         { //si le temps est en dessous de 42 mais au dessus de 22 c'est la nuit 22H à 8H
             Night = true;
         }
 
-        if(CurrentTime < 22 && CurrentTime > 0)
+        if(CurrentTime < 11 && CurrentTime > 0)
         { //si le temps est en dessous de 22 mais au dessus de 0 c'est les dernier temps de la jam OwO
             Night = false;
         }
