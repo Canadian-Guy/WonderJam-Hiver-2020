@@ -75,8 +75,6 @@ public class SpawnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(m_spawnRate);
 
-            Debug.Log("id: " + ValidPlayerID + " reverse: " + ReverseWordCount + " function: " + FunctionWordCount + " comment: " + CommentWordCount);
-
             WordWrapper ww = Dictionary.FetchWord();
 
             if(ReverseWordCount > 0 || FunctionWordCount > 0 || CommentWordCount > 0)
