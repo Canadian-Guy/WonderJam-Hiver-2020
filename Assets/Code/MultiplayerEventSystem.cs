@@ -76,7 +76,7 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
                 Players[other].AddSpeedUpWords(3);
                 break;
             case 10:
-                Players[self].TransformAllWordsIntoWord("apply", 5);
+                Players[other].TransformAllWordsIntoWord("revert", 2);
                 break;
         }
     }

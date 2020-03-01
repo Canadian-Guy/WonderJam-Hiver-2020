@@ -92,6 +92,7 @@ public class InputHandler : MonoBehaviour
         PView.RPC("TypedWord", RpcTarget.All, inputField.text);
     }
 
+
     private List<FallingWord> getAllActiveWords()
     {
         List<FallingWord> allWords = new List<FallingWord>();
@@ -191,14 +192,14 @@ public class InputHandler : MonoBehaviour
             {
                 int newLength = inputField.text.Length;
 
-                if(inputField.text.Length > 0 && Mathf.Abs(length - newLength) >= 2)
+                if(inputField.text.Length > 0 && Mathf.Abs(length - newLength) >= 4)
                 {
                     Clear();
                 }
 
                 length = inputField.text.Length;
 
-                yield return new WaitForSeconds(0.005f);
+                yield return new WaitForSeconds(0);
             }
         }
     }
