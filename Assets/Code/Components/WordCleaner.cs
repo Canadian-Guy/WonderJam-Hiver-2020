@@ -48,9 +48,6 @@ public class WordCleaner : MonoBehaviour
                 if(word.RequiresDeletion)
                 {
                     ActiveWordSet.Remove(word);
-
-                  
-
                     Destroy(word.gameObject);
                 }
             }
