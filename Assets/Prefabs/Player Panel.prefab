@@ -1069,7 +1069,7 @@ MonoBehaviour:
   GameLength: 96
   SpeedUpSpawns: 1
   SpawnRateRange:
-    Min: 0.47533554
+    Min: 0.6816629
     Max: 2.2158933
   SpeedUpWords: 1
   SpeedRange:
