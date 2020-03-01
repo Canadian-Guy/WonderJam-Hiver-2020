@@ -17,7 +17,7 @@ public class RandomSongPicker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int random = Random.Range(0, clips.Count+1);
+        int random = Random.Range(0, clips.Count);
         audioSource.clip = clips[random];
         audioSource.Play();
     }
