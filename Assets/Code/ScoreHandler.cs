@@ -19,6 +19,9 @@ public class ScoreHandler : MonoBehaviour
 
     [Tooltip("Text component that displays the combo.")]
     public TMP_Text ComboText;
+    public MyBox.OptionalInt maxCombo;
+    public int comboPrerequisiteSupp = 3;
+    public Animator comboAnimator;
 
     [Tooltip("Score increment tick speed, in seconds")]
     public float Speed = 0;
@@ -30,38 +33,74 @@ public class ScoreHandler : MonoBehaviour
 
     private bool IsItTheEndOfTimes = false;
 
-    private int m_combo = 1;
+    public int Combo { get; private set; } = 1;
+
+    private int _comboProgress = 0;
 
     void Start()
     {
         Score = 0;
         ScoreText.text = Score.ToString();
         StartCoroutine(UpdateScore());
+
+        ComboText.text = "x" + Combo;
     }
 
     public void PhotonIncreaseScore(int p_scoreToAdd)
     {
-        photonView.RPC("AddScore", RpcTarget.All,p_scoreToAdd);
-        photonView.RPC("UpdateCombo", RpcTarget.All, m_combo + 1);
+        photonView.RPC("UpdateCombo", RpcTarget.All, false);
+        photonView.RPC("AddScore", RpcTarget.All, p_scoreToAdd);
     }
 
     public void BreakCombo()
     {
-        photonView.RPC("UpdateCombo", RpcTarget.All, 1);
+        photonView.RPC("UpdateCombo", RpcTarget.All, true);
     }
 
     [PunRPC]
-    public void UpdateCombo(int p_combo)
+    public void UpdateCombo(bool p_break)
     {
-        m_combo = p_combo;
+        if (p_break)
+        {
+            if (Combo > 1)
+            {
+                if (maxCombo.IsSet && Combo == maxCombo.Value)
+                    comboAnimator.SetTrigger("ExitFrenzy");
+                else
+                    comboAnimator.SetTrigger("Shake");
 
-        ComboText.text = m_combo + "x";
+                Combo = 1;
+            }
+
+            _comboProgress = 0;
+
+        }
+        else if (!maxCombo.IsSet || Combo < maxCombo.Value)
+        {
+            ++_comboProgress;
+
+            if (_comboProgress >= Combo + 1 + comboPrerequisiteSupp)
+            {
+                _comboProgress = 0;
+                ++Combo;
+
+                if (Combo == maxCombo.Value)
+                    comboAnimator.SetTrigger("EnterFrenzy");
+                else
+                    comboAnimator.SetTrigger("Pulse");
+            }
+        }
+
+        if (Combo == maxCombo.Value)
+            ComboText.text = "FRENZY";
+        else
+            ComboText.text = "x" + Combo;
     }
 
     [PunRPC]
     public void AddScore(int p_score)
     {
-        Score += (p_score * m_combo);
+        Score += (p_score * Combo);
         
         //ScoreText.text = Score.ToString();
     }
@@ -95,16 +134,6 @@ public class ScoreHandler : MonoBehaviour
             }
             yield return new WaitForSeconds(Speed);
         }
-    }
-
-    public void DEBUG_AddScoreCombo0()
-    {
-        PhotonIncreaseScore(5);
-    }
-
-    public void DEBUG_AddScoreCombo5()
-    {
-        PhotonIncreaseScore(25);
     }
 
     public void Attack()

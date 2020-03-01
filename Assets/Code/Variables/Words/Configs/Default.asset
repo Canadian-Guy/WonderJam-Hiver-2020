@@ -22,8 +22,62 @@ MonoBehaviour:
     Difficulty: 2
     Probability: 100
   - Word: {fileID: 11400000, guid: 76e6109df56867448885fbb39ff57f27, type: 2}
-    Difficulty: 3
+    Difficulty: 4
     Probability: 100
   - Word: {fileID: 11400000, guid: 9e264320449dbdd4aa4efda1c0fceabd, type: 2}
-    Difficulty: 5
+    Difficulty: 6
+    Probability: 50
+  - Word: {fileID: 11400000, guid: c6e6347b984c1c84889f9e6e52702f62, type: 2}
+    Difficulty: 3
     Probability: 100
+  - Word: {fileID: 11400000, guid: be7cd44c8e0911b4d8438fddc1ca5cc7, type: 2}
+    Difficulty: 2
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 09792a77dc3940141b09b4572ceec349, type: 2}
+    Difficulty: 3
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 90a9df204f9984749aa13fdd01c4cbaf, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 4e0d264de8d82ad42bfd95eb06707a3a, type: 2}
+    Difficulty: 3
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 9a474c696a53f1045aeedc63da69c2f1, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 8c50ad4995f301645a052c6b65126bae, type: 2}
+    Difficulty: 2
+    Probability: 100
+  - Word: {fileID: 11400000, guid: cb159b967d211d941a4a1c5abee7a82a, type: 2}
+    Difficulty: 2
+    Probability: 100
+  - Word: {fileID: 11400000, guid: fc9cc08ced12a5941b8e2eadf4151c03, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 45bc260a4c6629d4aa23455e73bf1b98, type: 2}
+    Difficulty: 6
+    Probability: 50
+  - Word: {fileID: 11400000, guid: c0fbf34482db73c4fa21d6f6ffa40a7e, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 811938a88d34e4a4e894c3058f4bd8a1, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: fb3f883d8ebcf184c89a7414dd270236, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: cdf05397850364d4c8e81f3e991fe201, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 53fb6f28e0ff87c4fa3803b1a2206ac7, type: 2}
+    Difficulty: 3
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 06f31e5cd7413e645ad175df6d027f33, type: 2}
+    Difficulty: 4
+    Probability: 100
+  - Word: {fileID: 11400000, guid: a51fb2292cbbf484ebf05426f7087c6d, type: 2}
+    Difficulty: 3
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 816cccfe5cbbfe3499926e5a5becdd37, type: 2}
+    Difficulty: 5
+    Probability: 75

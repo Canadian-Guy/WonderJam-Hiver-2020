@@ -97,8 +97,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 50
@@ -261,9 +261,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38dd851a3ecbea4d888d013aa977967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Word:
+  BrokeCombo: 0
+  RequiresDeletion: 0
+  Wrapper:
     Word: {fileID: 0}
     Difficulty: 0
     Probability: 0
   Text: {fileID: 0}
   Falling: {fileID: 0}
+  popUpPrefab: {fileID: 4584582497210735258, guid: bf75760961f77ba468dbce65a3b97958,
+    type: 3}

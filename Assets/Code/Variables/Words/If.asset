@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: If
   m_EditorClassIdentifier: 
   Text: if
+  EventCode: 0
+  Points: 2

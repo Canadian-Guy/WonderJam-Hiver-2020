@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Delete
   m_EditorClassIdentifier: 
   Text: delete
+  EventCode: 0
+  Points: 6

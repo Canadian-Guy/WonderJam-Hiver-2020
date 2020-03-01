@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: For
   m_EditorClassIdentifier: 
   Text: for
+  EventCode: 0
+  Points: 3

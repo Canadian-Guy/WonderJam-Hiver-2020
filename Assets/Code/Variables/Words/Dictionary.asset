@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Dictionary
   m_EditorClassIdentifier: 
   Text: dictionary
+  EventCode: 0
+  Points: 10
