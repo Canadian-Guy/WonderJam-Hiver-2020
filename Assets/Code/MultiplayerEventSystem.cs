@@ -73,4 +73,13 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
                 break;
         }
     }
+
+    public override void OnJoinedRoom()
+    {
+        if (PhotonNetwork.PlayerList.Length == 2)
+        {
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+    }
 }

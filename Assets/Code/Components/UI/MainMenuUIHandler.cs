@@ -118,21 +118,30 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        Debug.Log("RoomListUpdated");
-        print(roomList.Count + " Rooms");
-        roomScrollRect = RoomList.GetComponent<ScrollRect>();
-        foreach (RoomInfo roomInfo in roomList)
+        if (PhotonNetwork.CurrentRoom == null)
         {
-            DefaultControls.Resources TempResource = new DefaultControls.Resources();
-            GameObject NewText = DefaultControls.CreateButton(TempResource);
-            NewText.AddComponent<LayoutElement>();
-            NewText.GetComponentInChildren<Text>().text = roomInfo.Name;
-            NewText.transform.SetParent(FindContent(roomScrollRect.gameObject));
-            NewText.transform.position = GetComponentInParent<Transform>().position;
-            RectTransform rt = NewText.GetComponentInChildren<RectTransform>();
-            rt.sizeDelta = new Vector2(gameObject.GetComponentInParent<RectTransform>().rect.width, 60);
-            NewText.GetComponentInChildren<Text>().resizeTextForBestFit = true;
-            NewText.GetComponent<Button>().onClick.AddListener(delegate{ Connector.JoinRoom(NewText.GetComponentInChildren<Text>().text); });
+            Debug.Log("RoomListUpdated");
+            print(roomList.Count + " Rooms");
+            roomScrollRect = RoomList.GetComponent<ScrollRect>();
+            foreach (RoomInfo roomInfo in roomList)
+            {
+                if (roomInfo.IsVisible == true)
+                {
+                    DefaultControls.Resources TempResource = new DefaultControls.Resources();
+                    GameObject NewText = DefaultControls.CreateButton(TempResource);
+                    NewText.AddComponent<LayoutElement>();
+                    NewText.GetComponentInChildren<Text>().text = roomInfo.Name;
+                    NewText.transform.SetParent(FindContent(roomScrollRect.gameObject));
+                    NewText.transform.position = GetComponentInParent<Transform>().position;
+                    RectTransform rt = NewText.GetComponentInChildren<RectTransform>();
+                    rt.sizeDelta = new Vector2(gameObject.GetComponentInParent<RectTransform>().rect.width, 60);
+                    NewText.GetComponentInChildren<Text>().resizeTextForBestFit = true;
+                    NewText.GetComponent<Button>().onClick.AddListener(delegate
+                    {
+                        Connector.JoinRoom(NewText.GetComponentInChildren<Text>().text);
+                    });
+                }
+            }
         }
     }
 
