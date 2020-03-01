@@ -15,6 +15,8 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     RoomOptions m_roomOptions = new RoomOptions();
     public MainMenuUIHandler MainMenuHandler;
     public Timer Timer;
+    [HideInInspector]
+    public GameObject clickedRoomListEntry;
 
     // Start is called before the first frame update
     void Start()

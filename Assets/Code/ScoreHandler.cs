@@ -11,6 +11,12 @@ using UnityEngine;
  */
 public class ScoreHandler : MonoBehaviour
 {
+    [Tooltip("The player ID linked to this handler")]
+    public int ValidPlayerID;
+
+    [Tooltip("This is the current score!")]
+    public ParticleSystem particlesystem;
+
     [Tooltip("This is the current score!")]
     public int Score = 0;
 
@@ -29,6 +35,10 @@ public class ScoreHandler : MonoBehaviour
     [Tooltip("Score tick increments")]
     public int Increment = 0;
 
+    [Tooltip("Sound to play when max combo is acheived")]
+    public AudioClip FrenzyClip;
+    private AudioSource _audioSource;
+
     public PhotonView photonView;
 
     private bool IsItTheEndOfTimes = false;
@@ -37,6 +47,11 @@ public class ScoreHandler : MonoBehaviour
 
     private int _comboProgress = 0;
 
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     void Start()
     {
         Score = 0;
@@ -44,6 +59,8 @@ public class ScoreHandler : MonoBehaviour
         StartCoroutine(UpdateScore());
 
         ComboText.text = "x" + Combo;
+
+        particlesystem.Stop();
     }
 
     public void PhotonIncreaseScore(int p_scoreToAdd)
@@ -64,6 +81,8 @@ public class ScoreHandler : MonoBehaviour
         {
             if (Combo > 1)
             {
+                particlesystem.Stop();
+
                 if (maxCombo.IsSet && Combo == maxCombo.Value)
                     comboAnimator.SetTrigger("ExitFrenzy");
                 else
@@ -77,6 +96,9 @@ public class ScoreHandler : MonoBehaviour
         }
         else if (!maxCombo.IsSet || Combo < maxCombo.Value)
         {
+
+            particlesystem.Stop();
+
             ++_comboProgress;
 
             if (_comboProgress >= Combo + 1 + comboPrerequisiteSupp)
@@ -85,16 +107,27 @@ public class ScoreHandler : MonoBehaviour
                 ++Combo;
 
                 if (Combo == maxCombo.Value)
+                {
                     comboAnimator.SetTrigger("EnterFrenzy");
+
+                    if (PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+                        _audioSource.PlayOneShot(FrenzyClip);
+                }
                 else
                     comboAnimator.SetTrigger("Pulse");
             }
         }
 
         if (Combo == maxCombo.Value)
+        {
             ComboText.text = "FRENZY";
+
+            particlesystem.Play();
+        }
         else
+        {
             ComboText.text = "x" + Combo;
+        }
     }
 
     [PunRPC]

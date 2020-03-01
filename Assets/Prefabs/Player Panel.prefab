@@ -314,6 +314,7 @@ MonoBehaviour:
   ValidPlayerID: 1
   typing: 0
   PopSound: {fileID: 8300000, guid: 86c58838f8325e54d88e0e898135c676, type: 3}
+  PowerUpSound: {fileID: 8300000, guid: 782ce802d692b8949938f5fb5a55d2db, type: 3}
   KeystrokeSound: {fileID: 8300000, guid: f50019349d9acd14ca0beeac06ca956a, type: 3}
   InvalidSound: {fileID: 8300000, guid: bf92772043bbcec44aa75703f8f38eec, type: 3}
   highlightColor: {r: 0.9882878, g: 1, b: 0, a: 1}
@@ -867,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152232e231981fd4ba7494b13a342569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ValidPlayerID: 0
   Score: 0
   ScoreText: {fileID: 4822379277991902206}
   ComboText: {fileID: 5365644130084801441}
@@ -877,6 +879,7 @@ MonoBehaviour:
   comboAnimator: {fileID: 5476512150339177756}
   Speed: 0.01
   Increment: 2
+  FrenzyClip: {fileID: 8300000, guid: 929e3f1aa3a55d645a32303be44cb88c, type: 3}
   photonView: {fileID: 6173047166221242270}
 --- !u!114 &4508656687073708035
 MonoBehaviour:
@@ -1296,7 +1299,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6255595995140627172}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0203863, w: 0.9997922}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1334,7 +1337,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x1
+  m_text: 'x1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c0946dece90d1640b647ce70594c340, type: 2}
   m_sharedMaterial: {fileID: 21910937811806750, guid: 3c0946dece90d1640b647ce70594c340,
@@ -1404,9 +1409,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5365644130084801441}
-    characterCount: 2
+    characterCount: 3
     spriteCount: 0
-    spaceCount: 0
+    spaceCount: 1
     wordCount: 1
     linkCount: 0
     lineCount: 1
