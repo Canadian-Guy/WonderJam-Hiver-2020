@@ -12,6 +12,9 @@ using UnityEngine;
 public class ScoreHandler : MonoBehaviour
 {
     [Tooltip("This is the current score!")]
+    public ParticleSystem particlesystem;
+
+    [Tooltip("This is the current score!")]
     public int Score = 0;
 
     [Tooltip("Text component that displays the score.")]
@@ -44,6 +47,8 @@ public class ScoreHandler : MonoBehaviour
         StartCoroutine(UpdateScore());
 
         ComboText.text = "x" + Combo;
+
+        particlesystem.Stop();
     }
 
     public void PhotonIncreaseScore(int p_scoreToAdd)
@@ -64,6 +69,8 @@ public class ScoreHandler : MonoBehaviour
         {
             if (Combo > 1)
             {
+                particlesystem.Stop();
+
                 if (maxCombo.IsSet && Combo == maxCombo.Value)
                     comboAnimator.SetTrigger("ExitFrenzy");
                 else
@@ -77,6 +84,9 @@ public class ScoreHandler : MonoBehaviour
         }
         else if (!maxCombo.IsSet || Combo < maxCombo.Value)
         {
+
+            particlesystem.Stop();
+
             ++_comboProgress;
 
             if (_comboProgress >= Combo + 1 + comboPrerequisiteSupp)
@@ -92,9 +102,15 @@ public class ScoreHandler : MonoBehaviour
         }
 
         if (Combo == maxCombo.Value)
+        {
             ComboText.text = "FRENZY";
+
+            particlesystem.Play();
+        }
         else
+        {
             ComboText.text = "x" + Combo;
+        }
     }
 
     [PunRPC]
