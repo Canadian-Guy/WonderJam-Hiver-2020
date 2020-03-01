@@ -33,6 +33,9 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
     [Tooltip("The main menu's waiting for player UI")]
     public GameObject WaitingForPlayerUI;
 
+    [Tooltip("The main menu's Credits UI")]
+    public GameObject CreditsUI;
+
     [Tooltip("The text displaying the current room's name")]
     public TMP_Text CurrentRoomNameText;
 
@@ -45,6 +48,7 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
         MainUI.SetActive(true);
         SelectRoomUI.SetActive(false);
         WaitingForPlayerUI.SetActive(false);
+        CreditsUI.SetActive(false);
 
         RoomInputField.text = "";
     }
