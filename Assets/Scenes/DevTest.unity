@@ -949,6 +949,12 @@ PrefabInstance:
       propertyPath: ValidPlayerID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6918171078183276382, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: ActiveWordSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 83ebe7735de05094ea57022902f8b590,
+        type: 2}
     - target: {fileID: 7099677441434804566, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: m_FlipX
