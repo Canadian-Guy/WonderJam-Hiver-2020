@@ -76,6 +76,8 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
         if (PhotonNetwork.InRoom)
         {
             PhotonNetwork.CurrentRoom.EmptyRoomTtl = 0;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            PhotonNetwork.CurrentRoom.IsOpen = false;
         }
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
