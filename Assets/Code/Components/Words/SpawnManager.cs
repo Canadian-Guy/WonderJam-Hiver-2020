@@ -39,6 +39,9 @@ public class SpawnManager : MonoBehaviour
     [Tooltip("The valid player ID for this spawn manager")]
     public int ValidPlayerID;
 
+    [Tooltip("The active word set for this spawn manager")]
+    public FallingWordSet ActiveWordSet;
+
     [HideInInspector] public int ReverseWordCount;
     [HideInInspector] public int FunctionWordCount;
     [HideInInspector] public int CommentWordCount;
@@ -115,7 +118,8 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnWord(WordWrapper p_word)
     {
-        float randomPosition = Random.Range(0f, 100f);
+        float randomPositionX = Random.Range(0f, 100f);
+        float randomPositionY = Random.Range(0f, 100f);
         float speedMult = 1;
 
         if(SpeedUpWordCount > 0)
@@ -129,12 +133,15 @@ public class SpawnManager : MonoBehaviour
         }
 
         PView.RPC("SpawnWord", RpcTarget.All, p_word.Word.Text, p_word.Difficulty,
-                                              randomPosition, p_word.Word.EventCode, 
-                                              speedMult, p_word.Word.Points);
+                                              randomPositionX, randomPositionY, 
+                                              p_word.Word.EventCode, speedMult, 
+                                              p_word.Word.Points);
     }
 
     [PunRPC]
-    private void SpawnWord(string p_word, int p_difficulty, float p_randomPosition, int p_eventCode, float p_speedMult, int p_points)
+    private void SpawnWord(string p_word, int p_difficulty, float p_randomPositionX, 
+                           float p_randomPositionY, int p_eventCode, float p_speedMult, 
+                           int p_points)
     {
         Word w = ScriptableObject.CreateInstance<Word>();
         w.Text = p_word;
@@ -148,12 +155,17 @@ public class SpawnManager : MonoBehaviour
         fWord.Falling.speed = m_speed * p_speedMult;
 
         float wordLength = fWord.Text.preferredWidth;
-        float randomMovement = RandomizeLocations ? (SpawnZone.rect.width - wordLength) * (p_randomPosition / 100f) : 0f;
+        float wordHeight = fWord.Text.preferredHeight;
+        float randomMovementX = RandomizeLocations ? (SpawnZone.rect.width - wordLength) * (p_randomPositionX / 100f) : 0f;
+        float randomMovementY = RandomizeLocations ? (SpawnZone.rect.height - wordHeight) * (p_randomPositionY / 100f) : 0f;
 
-        if(randomMovement > (SpawnZone.rect.width - wordLength) / 2)
-            randomMovement = (SpawnZone.rect.width - wordLength) / 2 - randomMovement;
+        if(randomMovementX > (SpawnZone.rect.width - wordLength) / 2)
+            randomMovementX = (SpawnZone.rect.width - wordLength) / 2 - randomMovementX;
 
-        word.transform.localPosition = new Vector3(SpawnZone.localPosition.x + randomMovement,
-                                                   SpawnZone.localPosition.y);
+        if(randomMovementY > (SpawnZone.rect.height - wordHeight) / 2)
+            randomMovementY = (SpawnZone.rect.height - wordHeight) / 2 - randomMovementY;
+
+        word.transform.localPosition = new Vector3(SpawnZone.localPosition.x + randomMovementX,
+                                                   SpawnZone.localPosition.y + randomMovementY);
     }
 }
