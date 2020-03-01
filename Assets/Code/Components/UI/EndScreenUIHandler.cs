@@ -53,6 +53,8 @@ public class EndScreenUIHandler : MonoBehaviour
         else
         {
             PlayerTie.SetActive(true);
+            audioSource.clip = WinnerSong;
+            audioSource.Play();
         }
     }
  
