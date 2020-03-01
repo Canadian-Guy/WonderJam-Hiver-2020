@@ -9,13 +9,13 @@ using UnityEngine.UI;
 public class EndScreenUIHandler : MonoBehaviour
 {
     [Tooltip("The image displaying when the player won")]
-    public Image PlayerWon;
+    public  GameObject PlayerWon;
 
     [Tooltip("The image displaying when the player lost")]
-    public Image PlayerLost;
+    public GameObject PlayerLost;
 
     [Tooltip("The image displaying when the player are in a tie")]
-    public Image PlayerTie;
+    public GameObject PlayerTie;
 
     [Tooltip("The text displaying the scores acquired by player 1 during the game")]
     public TMP_Text P1ScoreText;
@@ -27,15 +27,15 @@ public class EndScreenUIHandler : MonoBehaviour
     {
         if (p_result == 1)
         {
-            PlayerWon.enabled = true;
+            PlayerWon.SetActive(true);
         }
         else if (p_result == 2)
         {
-            PlayerLost.enabled = true;
+            PlayerLost.SetActive(true);
         }
         else
         {
-            PlayerTie.enabled = true;
+            PlayerTie.SetActive(true);
         }
     }
  

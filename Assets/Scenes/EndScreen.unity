@@ -933,9 +933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233cc99b4a210ea488f98af29c714647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerWon: {fileID: 1661146747}
-  PlayerLost: {fileID: 1137914037}
-  PlayerTie: {fileID: 1292368936}
+  PlayerWon: {fileID: 0}
+  PlayerLost: {fileID: 0}
+  PlayerTie: {fileID: 0}
   P1ScoreText: {fileID: 680616756}
   P2ScoreText: {fileID: 599432787}
 --- !u!1 &1292368935
