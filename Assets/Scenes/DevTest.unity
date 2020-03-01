@@ -779,6 +779,11 @@ PrefabInstance:
       propertyPath: ValidPlayerID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2053422387849886880, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2053422387849886883, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -938,7 +943,12 @@ PrefabInstance:
     - target: {fileID: 3317827641582247031, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100.000015
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317827641582247031, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3317827642107797605, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
@@ -1176,6 +1186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174882049458538651, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.4000244
       objectReference: {fileID: 0}
     - target: {fileID: 9174882049987736713, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
