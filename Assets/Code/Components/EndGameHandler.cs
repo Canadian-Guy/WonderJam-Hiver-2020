@@ -34,7 +34,7 @@ public class EndGameHandler : MonoBehaviour
         if(m_playerOneScore == m_playerTwoScore) m_winnerID = -1;
 
         PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void OnLevelLoad(Scene p_scene, LoadSceneMode p_loadSceneMode)
