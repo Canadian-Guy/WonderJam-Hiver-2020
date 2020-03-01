@@ -18,9 +18,9 @@ public class PopUpHandler : MonoBehaviour
     }
 
 
-    public void SetText(int p_value)
+    public void SetText(int p_value, bool p_isMiss = false)
     {
-        if (tmpText) tmpText.text = "// +" + p_value;
+        if (tmpText) tmpText.text = "// " + ((p_isMiss) ? "miss" : "+" + p_value);
     }
 
     private IEnumerator DelayedSepuku()
