@@ -265,6 +265,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7075610325539721709}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Typing
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1567,11 +1578,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6236712554519075505, guid: a60b1eba78f978b42a98565e4b728e40,
+        type: 3}
+      propertyPath: m_inputhandler
+      value: 
+      objectReference: {fileID: 4822379277297080478}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a60b1eba78f978b42a98565e4b728e40, type: 3}
 --- !u!224 &5224168374831788913 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6229781356998944181, guid: a60b1eba78f978b42a98565e4b728e40,
+    type: 3}
+  m_PrefabInstance: {fileID: 2164921174032144068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7075610325539721709 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8951685240112924457, guid: a60b1eba78f978b42a98565e4b728e40,
     type: 3}
   m_PrefabInstance: {fileID: 2164921174032144068}
   m_PrefabAsset: {fileID: 0}
