@@ -587,6 +587,16 @@ PrefabInstance:
       propertyPath: EndGameHandler
       value: 
       objectReference: {fileID: 1113965490}
+    - target: {fileID: 4675605319601006274, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: CurrentTime
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675605319601006274, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: TimeMod
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4675605319601006276, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: m_textInfo.characterCount
