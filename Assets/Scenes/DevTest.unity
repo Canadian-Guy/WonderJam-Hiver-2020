@@ -730,12 +730,12 @@ PrefabInstance:
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: SpawnRateRange.Min
-      value: 4.2842016
+      value: 5.522166
       objectReference: {fileID: 0}
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: SpawnRateRange.Max
-      value: 6.540579
+      value: 5.522166
       objectReference: {fileID: 0}
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
@@ -756,6 +756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SpeedRange.Max
       value: 2.3735437
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: SpeedUpSpawns
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983812881640345527, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
