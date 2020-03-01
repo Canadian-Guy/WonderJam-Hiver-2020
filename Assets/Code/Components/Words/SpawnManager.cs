@@ -100,6 +100,7 @@ public class SpawnManager : MonoBehaviour
                 }
                 
                 w.EventCode = ww.Word.EventCode;
+                w.Points = ww.Word.Points;
 
                 ww = new WordWrapper() { Word = w, Difficulty = ww.Difficulty, Probability = ww.Probability };
             }

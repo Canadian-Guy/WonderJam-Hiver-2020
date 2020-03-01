@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: public
   EventCode: 0
-  Points: 0
+  Points: 6

@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4292807679
       objectReference: {fileID: 0}
+    - target: {fileID: 2513643155362137572, guid: 806aad660b338f743a0e0389ff0948a0,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513643155362137572, guid: 806aad660b338f743a0e0389ff0948a0,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2513643155362137575, guid: 806aad660b338f743a0e0389ff0948a0,
         type: 3}
       propertyPath: m_LocalPosition.x
