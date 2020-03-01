@@ -40,7 +40,7 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
                 for(int i = 0; i < 5; i++)
                     bugText += (char) Random.Range(33, 127);
 
-                Players[other].SpawnWords(bugText);
+                Players[other].SpawnWords(0, bugText);
                 break;
             case 2: 
                 Players[other].AddReverseWords(3);
@@ -54,7 +54,7 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
                 for(int i = 0; i < 5; i++)
                     loopedWord[i] = "loop";
 
-                Players[self].SpawnWords(loopedWord);
+                Players[self].SpawnWords(2, loopedWord);
                 break;
             case 5:
                 Players[self].AddScore(25);
@@ -67,9 +67,11 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
                 break;
             case 8:
                 Players[self].ApplyMultSpeedToActiveWords(0.35f);
+                Players[self].AddSlowdownWords(3);
                 break;
             case 9:
-                Players[self].ApplyMultSpeedToActiveWords(1.25f);
+                Players[other].ApplyMultSpeedToActiveWords(1.5f);
+                Players[other].AddSpeedUpWords(3);
                 break;
         }
     }

@@ -42,6 +42,8 @@ public class SpawnManager : MonoBehaviour
     [HideInInspector] public int ReverseWordCount;
     [HideInInspector] public int FunctionWordCount;
     [HideInInspector] public int CommentWordCount;
+    [HideInInspector] public int SpeedUpWordCount;
+    [HideInInspector] public int SlowdownWordCount;
 
     private float m_spawnRate;
     private float m_speed;
@@ -109,13 +111,24 @@ public class SpawnManager : MonoBehaviour
     public void SpawnWord(WordWrapper p_word)
     {
         float randomPosition = Random.Range(0f, 100f);
+        float speedMult = 1;
+
+        if(SpeedUpWordCount > 0)
+        {
+            SpeedUpWordCount--;
+            speedMult = 1.5f;
+        } else if(SlowdownWordCount > 0)
+        {
+            SlowdownWordCount--;
+            speedMult = 0.35f;
+        }
 
         PView.RPC("SpawnWord", RpcTarget.All, p_word.Word.Text, p_word.Difficulty,
-                                              randomPosition, p_word.Word.EventCode);
+                                              randomPosition, p_word.Word.EventCode, speedMult);
     }
 
     [PunRPC]
-    private void SpawnWord(string p_word, int p_difficulty, float p_randomPosition, int p_eventCode)
+    private void SpawnWord(string p_word, int p_difficulty, float p_randomPosition, int p_eventCode, float p_speedMult)
     {
         Word w = ScriptableObject.CreateInstance<Word>();
         w.Text = p_word;
@@ -125,7 +138,7 @@ public class SpawnManager : MonoBehaviour
         GameObject word = Dictionary.InstantiateWord(ww);
         FallingWord fWord = word.GetComponent<FallingWord>();
 
-        fWord.Falling.speed = m_speed;
+        fWord.Falling.speed = m_speed * p_speedMult;
 
         float wordLength = fWord.Text.preferredWidth;
         float randomMovement = RandomizeLocations ? (SpawnZone.rect.width - wordLength) * (p_randomPosition / 100f) : 0f;
