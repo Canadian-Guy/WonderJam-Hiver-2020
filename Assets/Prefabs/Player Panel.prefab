@@ -867,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152232e231981fd4ba7494b13a342569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ValidPlayerID: 0
   Score: 0
   ScoreText: {fileID: 4822379277991902206}
   ComboText: {fileID: 5365644130084801441}
@@ -877,6 +878,7 @@ MonoBehaviour:
   comboAnimator: {fileID: 5476512150339177756}
   Speed: 0.01
   Increment: 2
+  FrenzyClip: {fileID: 8300000, guid: 929e3f1aa3a55d645a32303be44cb88c, type: 3}
   photonView: {fileID: 6173047166221242270}
 --- !u!114 &4508656687073708035
 MonoBehaviour:
