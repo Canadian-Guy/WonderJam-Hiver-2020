@@ -44,12 +44,12 @@ public class BonusHandler : MonoBehaviour
             word.Falling.speed *= p_multiplier;
     }
 
-    public void SpawnWords(int p_difficulty, params string[] p_words)
+    public void SpawnWords(int p_points, params string[] p_words)
     {
-        StartCoroutine(SpawnWordsDelayed(p_difficulty, p_words));
+        StartCoroutine(SpawnWordsDelayed(p_points, p_words));
     }
 
-    private IEnumerator SpawnWordsDelayed(int p_difficulty, string[] p_words)
+    private IEnumerator SpawnWordsDelayed(int p_points, string[] p_words)
     {
         for(int i = 0; i < p_words.Length; i++)
         {
@@ -57,8 +57,9 @@ public class BonusHandler : MonoBehaviour
 
             w.Text = p_words[i];
             w.EventCode = 0;
+            w.Points = p_points;
 
-            SpawnManager.SpawnWord(new WordWrapper() { Word = w, Difficulty = p_difficulty, Probability = 0 });
+            SpawnManager.SpawnWord(new WordWrapper() { Word = w, Difficulty = 0, Probability = 0 });
 
             yield return new WaitForSeconds(0.2f);
         }

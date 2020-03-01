@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d359079b4b51308448844f099f583317, type: 3}
-  m_Name: for
+  m_Name: For
   m_EditorClassIdentifier: 
   Text: for
-  Points: 3
+  EventCode: 0
+  Points: 0

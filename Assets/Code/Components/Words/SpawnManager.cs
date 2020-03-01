@@ -125,7 +125,7 @@ public class SpawnManager : MonoBehaviour
 
         PView.RPC("SpawnWord", RpcTarget.All, p_word.Word.Text, p_word.Difficulty,
                                               randomPosition, p_word.Word.EventCode, 
-                                              speedMult, generated.Word.Points);
+                                              speedMult, p_word.Word.Points);
     }
 
     [PunRPC]
