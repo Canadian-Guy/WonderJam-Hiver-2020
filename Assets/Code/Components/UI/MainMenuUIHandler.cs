@@ -148,6 +148,7 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
                     NewText.GetComponent<Button>().onClick.AddListener(delegate
                     {
                         Connector.JoinRoom(roomInfo.Name);
+                        Connector.clickedRoomListEntry = NewText.gameObject;
                     });
                 }
             }
