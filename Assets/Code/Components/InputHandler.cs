@@ -107,6 +107,8 @@ public class InputHandler : MonoBehaviour
                     m_foundWord = true;
                     ScoreHandler.PhotonIncreaseScore(word.GetScore());
                     audioSource.PlayOneShot(PopSound);
+
+                    word.CreatePopUp(ScoreHandler.Combo, transform.parent);
                 }
 
                 word.DestroyWord(false);

@@ -69,15 +69,16 @@ public class SpawnManager : MonoBehaviour
             WordWrapper generated = Dictionary.FetchWord();
             float randomPosition = Random.Range(0f, 100f);
 
-            PView.RPC("SpawnWord", RpcTarget.All, generated.Word.Text, generated.Difficulty, randomPosition);
+            PView.RPC("SpawnWord", RpcTarget.All, generated.Word.Text, generated.Difficulty, randomPosition, generated.Word.Points);
         }
     }
 
     [PunRPC]
-    private void SpawnWord(string p_word, int p_difficulty, float p_randomPosition)
+    private void SpawnWord(string p_word, int p_difficulty, float p_randomPosition, int p_points)
     {
         Word w = ScriptableObject.CreateInstance<Word>();
         w.Text = p_word;
+        w.Points = p_points;
 
         WordWrapper ww = new WordWrapper() { Word = w, Difficulty = p_difficulty, Probability = 0 };
         GameObject word = Dictionary.InstantiateWord(ww);

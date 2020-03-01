@@ -10,6 +10,9 @@ public class Word : ScriptableObject
 {
     [Tooltip("The text representing the word ; what this word says")]
     public string Text;
+
+    [Tooltip("The amount of points this word is worth")]
+    public int Points;
 }
 
 /*

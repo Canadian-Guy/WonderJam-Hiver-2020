@@ -26,7 +26,7 @@ MonoBehaviour:
     Probability: 100
   - Word: {fileID: 11400000, guid: 9e264320449dbdd4aa4efda1c0fceabd, type: 2}
     Difficulty: 6
-    Probability: 100
+    Probability: 50
   - Word: {fileID: 11400000, guid: c6e6347b984c1c84889f9e6e52702f62, type: 2}
     Difficulty: 3
     Probability: 100
@@ -56,7 +56,7 @@ MonoBehaviour:
     Probability: 100
   - Word: {fileID: 11400000, guid: 45bc260a4c6629d4aa23455e73bf1b98, type: 2}
     Difficulty: 6
-    Probability: 100
+    Probability: 50
   - Word: {fileID: 11400000, guid: c0fbf34482db73c4fa21d6f6ffa40a7e, type: 2}
     Difficulty: 4
     Probability: 100
@@ -75,3 +75,9 @@ MonoBehaviour:
   - Word: {fileID: 11400000, guid: 06f31e5cd7413e645ad175df6d027f33, type: 2}
     Difficulty: 4
     Probability: 100
+  - Word: {fileID: 11400000, guid: a51fb2292cbbf484ebf05426f7087c6d, type: 2}
+    Difficulty: 3
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 816cccfe5cbbfe3499926e5a5becdd37, type: 2}
+    Difficulty: 5
+    Probability: 75
