@@ -79,6 +79,7 @@ public class SpawnManager : MonoBehaviour
 
             if(ReverseWordCount > 0 || FunctionWordCount > 0 || CommentWordCount > 0)
             {
+                Debug.Log("reverse: " + ReverseWordCount + " function: " + FunctionWordCount + " comment: " + CommentWordCount);
                 Word w = ScriptableObject.CreateInstance<Word>();
 
                 if(ReverseWordCount > 0)

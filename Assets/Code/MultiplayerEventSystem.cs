@@ -27,10 +27,8 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
 
         int eventCode = photonEvent.Code;
         int attackingPlayer = (int) photonEvent.CustomData;
-        int self = attackingPlayer == 1 ? 1 : 0;
-        int other = attackingPlayer == 1 ? 0 : 1;
-
-        Debug.Log("received event code: " + eventCode + " self: " + self + " other: " + other);
+        int self = attackingPlayer == 1 ? 0 : 1;
+        int other = attackingPlayer == 1 ? 1 : 0;
 
         switch(eventCode)
         {
