@@ -28,13 +28,13 @@ public class FallingWord : MonoBehaviour
         Text.text = "MISSING WORD";
     }
 
-    public void CreatePopUp(int p_combo, Transform p_parent)
+    public void CreatePopUp(int p_combo, Transform p_parent, bool p_isMiss = false)
     {
         GameObject pop = Instantiate(popUpPrefab, p_parent);
         PopUpHandler handler = pop.GetComponent<PopUpHandler>();
 
         if (handler)
-            handler.SetText(Wrapper.Word.Points * p_combo);
+            handler.SetText(Wrapper.Word.Points * p_combo, p_isMiss);
 
         pop.transform.position = transform.position;
     }
