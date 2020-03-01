@@ -12,9 +12,11 @@ public class FallingWord : MonoBehaviour
     [HideInInspector] public bool BrokeCombo; // always false unless the combo breaks with this word
     [HideInInspector] public bool RequiresDeletion;
 
-    [HideInInspector] public WordWrapper Wrapper;
+    public WordWrapper Wrapper;
     [HideInInspector] public TMP_Text Text;
     [HideInInspector] public Falling Falling;
+
+    public GameObject popUpPrefab;
 
     private FallingWordSet m_activeWordSet;
 
@@ -25,6 +27,18 @@ public class FallingWord : MonoBehaviour
 
         Text.text = "MISSING WORD";
     }
+
+    public void CreatePopUp(int p_combo, Transform p_parent)
+    {
+        GameObject pop = Instantiate(popUpPrefab, p_parent);
+        PopUpHandler handler = pop.GetComponent<PopUpHandler>();
+
+        if (handler)
+            handler.SetText(Wrapper.Word.Points * p_combo);
+
+        pop.transform.position = transform.position;
+    }
+
 
     public bool Check(string p_string)
     {
@@ -40,7 +54,8 @@ public class FallingWord : MonoBehaviour
 
     public int GetScore()
     {
-        return Wrapper.Difficulty;
+        Debug.Log(Wrapper.Word.Points);
+        return Wrapper.Word.Points;
     }
 
     public void DestroyWord(bool p_breaksCombo)

@@ -10,8 +10,12 @@ public class Word : ScriptableObject
 {
     [Tooltip("The text representing the word ; what this word says")]
     public string Text;
+    
     [Tooltip("The code of the event the attack word launch")]
     public int EventCode;
+
+    [Tooltip("The amount of points this word is worth")]
+    public int Points;
 }
 
 /*

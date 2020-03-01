@@ -33,7 +33,8 @@ public class ScoreHandler : MonoBehaviour
 
     private bool IsItTheEndOfTimes = false;
 
-    private int m_combo = 1;
+    public int Combo { get; private set; } = 1;
+
     private int _comboProgress = 0;
 
     void Start()
@@ -42,13 +43,13 @@ public class ScoreHandler : MonoBehaviour
         ScoreText.text = Score.ToString();
         StartCoroutine(UpdateScore());
 
-        ComboText.text = "x" + m_combo;
+        ComboText.text = "x" + Combo;
     }
 
     public void PhotonIncreaseScore(int p_scoreToAdd)
     {
-        photonView.RPC("AddScore", RpcTarget.All, p_scoreToAdd);
         photonView.RPC("UpdateCombo", RpcTarget.All, false);
+        photonView.RPC("AddScore", RpcTarget.All, p_scoreToAdd);
     }
 
     public void BreakCombo()
@@ -61,45 +62,45 @@ public class ScoreHandler : MonoBehaviour
     {
         if (p_break)
         {
-            if (m_combo > 1)
+            if (Combo > 1)
             {
-                if (maxCombo.IsSet && m_combo == maxCombo.Value)
+                if (maxCombo.IsSet && Combo == maxCombo.Value)
                     comboAnimator.SetTrigger("ExitFrenzy");
                 else
                     comboAnimator.SetTrigger("Shake");
 
-                m_combo = 1;
+                Combo = 1;
             }
 
             _comboProgress = 0;
 
         }
-        else if (!maxCombo.IsSet || m_combo < maxCombo.Value)
+        else if (!maxCombo.IsSet || Combo < maxCombo.Value)
         {
             ++_comboProgress;
 
-            if (_comboProgress >= m_combo + 1 + comboPrerequisiteSupp)
+            if (_comboProgress >= Combo + 1 + comboPrerequisiteSupp)
             {
                 _comboProgress = 0;
-                ++m_combo;
+                ++Combo;
 
-                if (m_combo == maxCombo.Value)
+                if (Combo == maxCombo.Value)
                     comboAnimator.SetTrigger("EnterFrenzy");
                 else
                     comboAnimator.SetTrigger("Pulse");
             }
         }
 
-        if (m_combo == maxCombo.Value)
+        if (Combo == maxCombo.Value)
             ComboText.text = "FRENZY";
         else
-            ComboText.text = "x" + m_combo;
+            ComboText.text = "x" + Combo;
     }
 
     [PunRPC]
     public void AddScore(int p_score)
     {
-        Score += (p_score * m_combo);
+        Score += (p_score * Combo);
         
         //ScoreText.text = Score.ToString();
     }
