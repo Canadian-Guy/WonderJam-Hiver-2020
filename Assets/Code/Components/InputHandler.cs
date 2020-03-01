@@ -53,6 +53,7 @@ public class InputHandler : MonoBehaviour
     {
         StartCoroutine(UpdateHighlight());
         StartCoroutine(CheckForCopyPaste());
+        StartCoroutine(SendInputFieldUpdates());
     }
 
     public void PlayKeyStroke()
@@ -151,6 +152,33 @@ public class InputHandler : MonoBehaviour
             HighlightWords();
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    private IEnumerator SendInputFieldUpdates()
+    {
+        if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+        {
+            string input = "";
+
+            while(true)
+            {
+                if(!inputField.text.Equals(input))
+                {
+                    input = inputField.text;
+
+                    PView.RPC("UpdateInputField", RpcTarget.All, input);
+                }
+
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+    }
+
+    [PunRPC]
+    private void UpdateInputField(string p_input)
+    {
+        if(!inputField.interactable)
+            inputField.text = p_input;
     }
 
     private IEnumerator CheckForCopyPaste()
