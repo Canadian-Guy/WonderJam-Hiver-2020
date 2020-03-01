@@ -75,6 +75,9 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
                 Players[other].ApplyMultSpeedToActiveWords(1.5f);
                 Players[other].AddSpeedUpWords(3);
                 break;
+            case 10:
+                Players[self].TransformAllWordsIntoWord("apply", 5);
+                break;
         }
     }
 

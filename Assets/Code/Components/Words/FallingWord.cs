@@ -52,6 +52,12 @@ public class FallingWord : MonoBehaviour
         Text.text = Wrapper.Word.Text;
     }
 
+    public void ChangeWord(Word p_word)
+    {
+        Wrapper.Word = p_word;
+        Text.text = Wrapper.Word.Text;
+    }
+
     public int GetScore()
     {
         Debug.Log(Wrapper.Word.Points);
