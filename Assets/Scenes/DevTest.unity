@@ -662,6 +662,12 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a76f1a291b94a5b41ae88e67f945a7d1, type: 2}
+    - target: {fileID: 1354887442131951936, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: activeWordSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 83ebe7735de05094ea57022902f8b590,
+        type: 2}
     - target: {fileID: 1505653936128019708, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -783,6 +789,11 @@ PrefabInstance:
       propertyPath: highlightColor.g
       value: 0.083632916
       objectReference: {fileID: 0}
+    - target: {fileID: 2053422388597907395, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: inputField
+      value: 
+      objectReference: {fileID: 2084170842}
     - target: {fileID: 2621617931304201215, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: m_timer
@@ -989,3 +1000,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 2084170839}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2084170842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2053422388597907394, guid: c4a74c4538c989a4a86c77a51106dcfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2084170839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
