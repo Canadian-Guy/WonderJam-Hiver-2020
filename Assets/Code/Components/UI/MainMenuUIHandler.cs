@@ -38,6 +38,7 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
 
     public GameObject RoomList;
     private ScrollRect roomScrollRect;
+    public GameObject content;
 
     void Awake()
     {
@@ -118,6 +119,8 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        destroyButton();
+
         if (PhotonNetwork.CurrentRoom == null)
         {
             Debug.Log("RoomListUpdated");
@@ -131,7 +134,7 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
                     GameObject NewText = DefaultControls.CreateButton(TempResource);
                     NewText.AddComponent<LayoutElement>();
                     NewText.GetComponentInChildren<Text>().text = roomInfo.Name;
-                    NewText.transform.SetParent(FindContent(roomScrollRect.gameObject));
+                    NewText.transform.SetParent(content.GetComponent<RectTransform>());
                     NewText.transform.position = GetComponentInParent<Transform>().position;
                     RectTransform rt = NewText.GetComponentInChildren<RectTransform>();
                     rt.sizeDelta = new Vector2(gameObject.GetComponentInParent<RectTransform>().rect.width, 60);
@@ -145,18 +148,11 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
         }
     }
 
-    public RectTransform FindContent(GameObject ScrollViewObject)
+    public void destroyButton()
     {
-        RectTransform RetVal = null;
-        Transform[] Temp = ScrollViewObject.GetComponentsInChildren<Transform>();
-        foreach (Transform Child in Temp)
+        for (int x = 0; x < content.GetComponent<RectTransform>().childCount; x++)
         {
-            if (Child.name == "Content")
-            {
-                RetVal = Child.gameObject.GetComponent<RectTransform>();
-            }
-
+            Destroy(content.GetComponent<RectTransform>().GetChild(x).gameObject);
         }
-        return RetVal;
     }
 }

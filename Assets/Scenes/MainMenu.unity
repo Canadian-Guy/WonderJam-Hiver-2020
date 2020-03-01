@@ -702,6 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuHandler: {fileID: 1802239264}
   RoomInputField: {fileID: 0}
+  Timer: {fileID: 0}
 --- !u!4 &598822564
 Transform:
   m_ObjectHideFlags: 0
@@ -3465,6 +3466,7 @@ MonoBehaviour:
   WaitingForPlayerUI: {fileID: 1551261735}
   CurrentRoomNameText: {fileID: 2145489327}
   RoomList: {fileID: 1027872567}
+  content: {fileID: 1327665962}
 --- !u!1 &1893860583
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
 {
     public BonusHandler[] Players = new BonusHandler[2];
 
+    public GameObject content;
+
     public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -82,6 +84,14 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
         {
             PhotonNetwork.CurrentRoom.IsVisible = false;
             PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        if (returnCode == 32765)
+        {
+
         }
     }
 }
