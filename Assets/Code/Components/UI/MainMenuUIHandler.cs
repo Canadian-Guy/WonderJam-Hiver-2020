@@ -58,30 +58,39 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
 
     public void OpenRoomList()
     {
-        //PhotonNetwork.GetCustomRoomList(TypedLobby.Default, "*");
         PhotonNetwork.JoinLobby();
+    }
+
+    public void CloseRoomList()
+    {
+        PhotonNetwork.LeaveLobby();
+        PhotonNetwork.LeaveRoom();
+        //PhotonNetwork.LoadLevel(0);
     }
 
     public void RoomJoined()
     {
         SelectRoomUI.SetActive(false);
-        WaitingForPlayerUI.SetActive(true);
+            WaitingForPlayerUI.SetActive(true);
 
-        CurrentRoomNameText.text = "Room: " + PhotonNetwork.CurrentRoom.Name;
+            CurrentRoomNameText.text = "Room: " + PhotonNetwork.CurrentRoom.Name;
 
-        if(PhotonNetwork.CurrentRoom.PlayerCount < 2)
-            StartCoroutine(WaitForPlayer());
-        else PhotonNetwork.LoadLevel(1);
+            if (PhotonNetwork.CurrentRoom.PlayerCount < 2)
+                StartCoroutine(WaitForPlayer());
+            else PhotonNetwork.LoadLevel(1);
     }
 
     private IEnumerator WaitForPlayer()
     {
-        while(PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom.PlayerCount < 2)
+        while (PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom.PlayerCount < 2)
         {
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        PhotonNetwork.LoadLevel(1);
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LoadLevel(1);
+        }
     }
 
     public void RoomFail()
@@ -151,5 +160,12 @@ public class MainMenuUIHandler : MonoBehaviourPunCallbacks
         {
             Destroy(content.GetComponent<RectTransform>().GetChild(x).gameObject);
         }
+    }
+
+    public void forceBackToSelectRoom()
+    {
+        MainUI.SetActive(false);
+        WaitingForPlayerUI.SetActive(false);
+        SelectRoomUI.SetActive(true);
     }
 }
