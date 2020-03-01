@@ -11,6 +11,9 @@ using UnityEngine;
  */
 public class ScoreHandler : MonoBehaviour
 {
+    [Tooltip("The player ID linked to this handler")]
+    public int ValidPlayerID;
+
     [Tooltip("This is the current score!")]
     public ParticleSystem particlesystem;
 
@@ -32,6 +35,10 @@ public class ScoreHandler : MonoBehaviour
     [Tooltip("Score tick increments")]
     public int Increment = 0;
 
+    [Tooltip("Sound to play when max combo is acheived")]
+    public AudioClip FrenzyClip;
+    private AudioSource _audioSource;
+
     public PhotonView photonView;
 
     private bool IsItTheEndOfTimes = false;
@@ -39,6 +46,11 @@ public class ScoreHandler : MonoBehaviour
     public int Combo { get; private set; } = 1;
 
     private int _comboProgress = 0;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
@@ -95,7 +107,12 @@ public class ScoreHandler : MonoBehaviour
                 ++Combo;
 
                 if (Combo == maxCombo.Value)
+                {
                     comboAnimator.SetTrigger("EnterFrenzy");
+
+                    if (PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+                        _audioSource.PlayOneShot(FrenzyClip);
+                }
                 else
                     comboAnimator.SetTrigger("Pulse");
             }
