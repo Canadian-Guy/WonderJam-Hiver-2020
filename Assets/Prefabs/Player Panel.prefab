@@ -314,6 +314,7 @@ MonoBehaviour:
   ValidPlayerID: 1
   typing: 0
   PopSound: {fileID: 8300000, guid: 86c58838f8325e54d88e0e898135c676, type: 3}
+  PowerUpSound: {fileID: 8300000, guid: 782ce802d692b8949938f5fb5a55d2db, type: 3}
   KeystrokeSound: {fileID: 8300000, guid: f50019349d9acd14ca0beeac06ca956a, type: 3}
   InvalidSound: {fileID: 8300000, guid: bf92772043bbcec44aa75703f8f38eec, type: 3}
   highlightColor: {r: 0.9882878, g: 1, b: 0, a: 1}
