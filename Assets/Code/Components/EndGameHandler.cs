@@ -53,7 +53,7 @@ public class EndGameHandler : MonoBehaviour
 
             if(uiHandler)
             {
-                uiHandler.UpdateResultHeader(m_winnerID == m_playerID ? 1 : (m_winnerID == -1 ? 0 : 2));
+                uiHandler.UpdateResultImage(m_winnerID == m_playerID ? 1 : (m_winnerID == -1 ? 0 : 2));
                 uiHandler.UpdateScoreText(m_playerOneScore, m_playerTwoScore);
 
                 LocalDestroy();
