@@ -8,6 +8,7 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MultiplayerConnector : MonoBehaviourPunCallbacks
 {
@@ -45,7 +46,6 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        PhotonNetwork.LoadLevel(0);
     }
 
     public override void OnCreatedRoom()
@@ -73,11 +73,18 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
         MainMenuHandler.RoomFail();
     }
 
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+
+        SceneManager.LoadScene(0);
+    }
+
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         if(Timer && Timer.CurrentTime <= 1.0f) return;
+        if(PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
 
-        PhotonNetwork.LeaveRoom();
-        PhotonNetwork.LoadLevel(0);
+        SceneManager.LoadScene(0);
     }
 }
