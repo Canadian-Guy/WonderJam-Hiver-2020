@@ -4,7 +4,7 @@ using Photon.Pun;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
-using Boo.Lang;
+using System.Collections.Generic;
 using ExitGames.Client.Photon;
 using Photon.Realtime;
 
