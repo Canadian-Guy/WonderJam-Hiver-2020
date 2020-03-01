@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a4fc6415d04c94ab32321fe8776bce, type: 3}
+  m_Name: BonusWordConfig
+  m_EditorClassIdentifier: 
+  DictionarySize: 50
+  TimeToReachDiffCap: 96
+  Words:
+  - Word: {fileID: 11400000, guid: 4b0c699a072c5714fb37bf426ec4f877, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 82ddd579b8301c04b90185f9dd02fa58, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: eb1434f127881f04aa32b53a6cf4717b, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: fe53a516d8b17f8459f824022100393f, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 703d74eab771c25439be08b7ac5ca8aa, type: 2}
+    Difficulty: 1
+    Probability: 50
+  - Word: {fileID: 11400000, guid: 03c6f33e6ebc0b24d8baea31854b894b, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 3f20d1a5754897e48a8db61d97db36f2, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 9b0e99899cd5b74498c9b18b2a13a23e, type: 2}
+    Difficulty: 1
+    Probability: 100
+  - Word: {fileID: 11400000, guid: 1f31da7d7194a0f4aaf1db13a5617b28, type: 2}
+    Difficulty: 1
+    Probability: 100
