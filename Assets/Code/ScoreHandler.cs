@@ -69,7 +69,7 @@ public class ScoreHandler : MonoBehaviour
                 else
                     comboAnimator.SetTrigger("Shake");
 
-                Combo = 1;
+                --Combo;
             }
 
             _comboProgress = 0;

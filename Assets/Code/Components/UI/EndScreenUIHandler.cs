@@ -23,19 +23,38 @@ public class EndScreenUIHandler : MonoBehaviour
     [Tooltip("The text displaying the scores acquired by player 2 during the game")]
     public TMP_Text P2ScoreText;
 
+    [Tooltip("Audioclip played when the player loses")]
+    public AudioClip LoserSong;
+
+    [Tooltip("Audioclip played when the player wins")]
+    public AudioClip WinnerSong;
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void UpdateResultImage(int p_result)
     {
         if (p_result == 1)
         {
             PlayerWon.SetActive(true);
+            audioSource.clip = WinnerSong;
+            audioSource.Play();
         }
         else if (p_result == 2)
         {
             PlayerLost.SetActive(true);
+            audioSource.clip = LoserSong;
+            audioSource.Play();
         }
         else
         {
             PlayerTie.SetActive(true);
+            audioSource.clip = WinnerSong;
+            audioSource.Play();
         }
     }
  
