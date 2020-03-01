@@ -1085,6 +1085,11 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6380716487677074760, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 125
+      objectReference: {fileID: 0}
     - target: {fileID: 6918171078183276382, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
       propertyPath: ValidPlayerID
@@ -1116,6 +1121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708097369440746911, guid: c4a74c4538c989a4a86c77a51106dcfd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 8425412200272263820, guid: c4a74c4538c989a4a86c77a51106dcfd,
         type: 3}
