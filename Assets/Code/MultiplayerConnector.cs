@@ -73,10 +73,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        if (PhotonNetwork.InRoom)
-        {
-            PhotonNetwork.CurrentRoom.EmptyRoomTtl = 0;
-        }
+        PhotonNetwork.CurrentRoom.EmptyRoomTtl = 0;
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             MainMenuHandler.forceBackToSelectRoom();
