@@ -39,5 +39,8 @@ MonoBehaviour:
   - LocalDestroy
   - TypedWord
   - UpdateCombo
+  - FreezeWords
+  - SlowWords
+  - ApplyMultSpeedToWords
   DisableAutoOpenWizard: 1
   ShowSettings: 1

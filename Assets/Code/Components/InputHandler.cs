@@ -112,7 +112,6 @@ public class InputHandler : MonoBehaviour
                 {
                     if(word.tag == "BonusWord")
                     {
-                        Debug.Log("Sending event code");
                         m_foundWord = true;
                         ScoreHandler.PhotonIncreaseScore(word.GetScore());
                         PhotonNetwork.RaiseEvent((byte) word.Wrapper.Word.EventCode, PhotonNetwork.LocalPlayer.ActorNumber, RaiseEventOptions.Default, SendOptions.SendReliable);
