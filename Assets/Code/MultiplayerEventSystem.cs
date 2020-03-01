@@ -30,6 +30,8 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
         int self = attackingPlayer == 1 ? 0 : 1;
         int other = attackingPlayer == 1 ? 1 : 0;
 
+        Debug.Log("received event code: " + eventCode + " self: " + self + " other: " + other);
+
         switch(eventCode)
         {
             case 0: 

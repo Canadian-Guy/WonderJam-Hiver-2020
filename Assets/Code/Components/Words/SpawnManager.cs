@@ -87,12 +87,16 @@ public class SpawnManager : MonoBehaviour
 
                     for(int i = ww.Word.Text.Length - 1; i >= 0; i--)
                         w.Text += ww.Word.Text[i];
-                } else if(FunctionWordCount > 0)
+                } 
+
+                if(FunctionWordCount > 0)
                 {
                     FunctionWordCount--;
 
                     w.Text = ww.Word.Text + "()";
-                } else if(CommentWordCount > 0)
+                } 
+
+                if(CommentWordCount > 0)
                 {
                     CommentWordCount--;
 
