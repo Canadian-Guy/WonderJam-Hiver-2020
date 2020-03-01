@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 
 public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallback
 {
-    public InputHandler[] Players = new InputHandler[2];
+    public BonusHandler[] Players = new BonusHandler[2];
 
     public override void OnEnable()
     {
@@ -25,16 +25,52 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
         if(photonEvent.CustomData == null || !(photonEvent.CustomData is int))
             return;
 
-        int eventCode = (int)photonEvent.Code;
-        int attackingPlayer = (int)photonEvent.CustomData;
+        int eventCode = photonEvent.Code;
+        int attackingPlayer = (int) photonEvent.CustomData;
+        int self = attackingPlayer == 1 ? 0 : 1;
+        int other = attackingPlayer == 1 ? 1 : 0;
 
-        Debug.Log("Received Event : " + eventCode);
-
-        if (eventCode == 0)
+        switch(eventCode)
         {
-            Debug.Log("Event 0 received");
+            case 0: 
+                break;
+            case 1:
+                string bugText = "";
 
-            Players[attackingPlayer == 1 ? 1 : 0].ScoreHandler.PhotonIncreaseScore(-50000);
+                for(int i = 0; i < 5; i++)
+                    bugText += (char) Random.Range(33, 127);
+
+                Players[other].SpawnWords(bugText);
+                break;
+            case 2: 
+                Players[other].AddReverseWords(3);
+                break;
+            case 3: 
+                Players[self].FreezeActiveWords();
+                break;
+            case 4:
+                string[] loopedWord = new string[5];
+
+                for(int i = 0; i < 5; i++)
+                    loopedWord[i] = "loop";
+
+                Players[self].SpawnWords(loopedWord);
+                break;
+            case 5:
+                Players[self].AddScore(25);
+                break;
+            case 6:
+                Players[other].AddFunctionWords(3);
+                break;
+            case 7:
+                Players[other].AddCommentWords(3);
+                break;
+            case 8:
+                Players[self].ApplyMultSpeedToActiveWords(0.35f);
+                break;
+            case 9:
+                Players[self].ApplyMultSpeedToActiveWords(1.25f);
+                break;
         }
     }
 }

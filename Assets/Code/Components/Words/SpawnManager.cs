@@ -36,6 +36,13 @@ public class SpawnManager : MonoBehaviour
     [Tooltip("The speed range at which the words fall at, will go from lower to upper bound over the game")]
     [MinMaxRange(0f, 15f)] public RangedFloat SpeedRange;
 
+    [Tooltip("The valid player ID for this spawn manager")]
+    public int ValidPlayerID;
+
+    [HideInInspector] public int ReverseWordCount;
+    [HideInInspector] public int FunctionWordCount;
+    [HideInInspector] public int CommentWordCount;
+
     private float m_spawnRate;
     private float m_speed;
 
@@ -62,16 +69,49 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator SpawnWordRoutine()
     {
-        while(PhotonNetwork.InRoom)
+        while(PhotonNetwork.InRoom && PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
         {
             yield return new WaitForSeconds(m_spawnRate);
 
-            WordWrapper generated = Dictionary.FetchWord();
-            float randomPosition = Random.Range(0f, 100f);
+            WordWrapper ww = Dictionary.FetchWord();
 
-            PView.RPC("SpawnWord", RpcTarget.All, generated.Word.Text, generated.Difficulty, 
-                randomPosition, generated.Word.EventCode);
+            if(ReverseWordCount > 0 || FunctionWordCount > 0 || CommentWordCount > 0)
+            {
+                Word w = ScriptableObject.CreateInstance<Word>();
+
+                if(ReverseWordCount > 0)
+                {
+                    ReverseWordCount--;
+
+                    for(int i = ww.Word.Text.Length - 1; i >= 0; i--)
+                        w.Text += ww.Word.Text[i];
+                } else if(FunctionWordCount > 0)
+                {
+                    FunctionWordCount--;
+
+                    w.Text = ww.Word.Text + "()";
+                } else if(CommentWordCount > 0)
+                {
+                    CommentWordCount--;
+
+                    w.Text = "//" + ww.Word.Text;
+                }
+                
+                w.EventCode = ww.Word.EventCode;
+
+                ww = new WordWrapper() { Word = w, Difficulty = ww.Difficulty, Probability = ww.Probability };
+            }
+
+            SpawnWord(ww);
         }
+    }
+
+    public void SpawnWord(WordWrapper p_word)
+    {
+        float randomPosition = Random.Range(0f, 100f);
+
+        PView.RPC("SpawnWord", RpcTarget.All, p_word.Word.Text, p_word.Difficulty,
+                                              randomPosition, p_word.Word.EventCode);
     }
 
     [PunRPC]
