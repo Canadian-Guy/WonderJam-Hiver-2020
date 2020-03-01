@@ -878,7 +878,7 @@ MonoBehaviour:
   comboAnimator: {fileID: 5476512150339177756}
   Speed: 0.01
   Increment: 2
-  FrenzyClip: {fileID: 8300000, guid: a73fb11f1f6a5ee418ced87e91a44245, type: 3}
+  FrenzyClip: {fileID: 8300000, guid: 929e3f1aa3a55d645a32303be44cb88c, type: 3}
   photonView: {fileID: 6173047166221242270}
 --- !u!114 &4508656687073708035
 MonoBehaviour:
