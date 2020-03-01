@@ -92,9 +92,25 @@ public class MultiplayerEventSystem : MonoBehaviourPunCallbacks, IOnEventCallbac
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        if (returnCode == 32765)
-        {
+        StartCoroutine(FailedRoomListJoin(gameObject.GetComponent<MultiplayerConnector>().clickedRoomListEntry, message));
+    }
 
+    private IEnumerator FailedRoomListJoin(GameObject p_button, string message)
+    {
+        string textToPutBack = p_button.GetComponentInChildren<TMP_Text>().text;
+        p_button.GetComponentInChildren<TMP_Text>().text = message;
+        Color colorToPutBack = p_button.GetComponentInChildren<TMP_Text>().color;
+        float percentage = 1f;
+
+        while (percentage > 0f)
+        {
+            p_button.GetComponentInChildren<TMP_Text>().color = new Color(1, 0, 0, percentage);
+            percentage -= 0.05f;
+
+            yield return new WaitForSeconds(0.1f);
         }
+
+        p_button.GetComponentInChildren<TMP_Text>().text = textToPutBack;
+        p_button.GetComponentInChildren<TMP_Text>().color = colorToPutBack;
     }
 }
