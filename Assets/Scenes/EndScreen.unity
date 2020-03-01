@@ -940,7 +940,7 @@ MonoBehaviour:
   P1ScoreText: {fileID: 680616756}
   P2ScoreText: {fileID: 599432787}
   LoserSong: {fileID: 8300000, guid: 201d0b6396d096843b10475b9baa5606, type: 3}
-  WinnerSong: {fileID: 8300000, guid: c23ddccf0d4197d4ababcd5526bf6f0f, type: 3}
+  WinnerSong: {fileID: 8300000, guid: 792e986340508754ab761e51cf208d4a, type: 3}
 --- !u!82 &1156257583
 AudioSource:
   m_ObjectHideFlags: 0
