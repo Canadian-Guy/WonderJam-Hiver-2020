@@ -839,11 +839,11 @@ MonoBehaviour:
   SpeedUpSpawns: 1
   SpawnRateRange:
     Min: 0.47533554
-    Max: 3.5570211
+    Max: 2.2158933
   SpeedUpWords: 1
   SpeedRange:
-    Min: 0.4729966
-    Max: 1.2695183
+    Min: 0.78248763
+    Max: 1.4758456
   ValidPlayerID: 1
   ReverseWordCount: 0
   FunctionWordCount: 0
