@@ -22,7 +22,10 @@ public class InputHandler : MonoBehaviour
 
     [Tooltip("Sound played when a valid word is typed")]
     public AudioClip PopSound;
-    
+
+    [Tooltip("Sound played when a valid power up is typed")]
+    public AudioClip PowerUpSound;
+
     [Tooltip("Sound played when a valid word is typed")]
     public AudioClip KeystrokeSound;
 
@@ -120,7 +123,7 @@ public class InputHandler : MonoBehaviour
                         m_foundWord = true;
                         ScoreHandler.PhotonIncreaseScore(word.GetScore());
                         PhotonNetwork.RaiseEvent((byte) word.Wrapper.Word.EventCode, ValidPlayerID, RaiseEventOptions.Default, SendOptions.SendReliable);
-                        audioSource.PlayOneShot(PopSound);
+                        audioSource.PlayOneShot(PowerUpSound);
                     } else
                     {
                         m_foundWord = true;
@@ -129,6 +132,10 @@ public class InputHandler : MonoBehaviour
                         
                         word.CreatePopUp(ScoreHandler.Combo, transform.parent);
                     }
+                }
+                else if (word.tag == "BonusWord")
+                {
+                    audioSource.PlayOneShot(PowerUpSound);
                 }
 
                 word.DestroyWord(false);
