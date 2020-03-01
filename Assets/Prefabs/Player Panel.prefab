@@ -838,16 +838,18 @@ MonoBehaviour:
   GameLength: 96
   SpeedUpSpawns: 1
   SpawnRateRange:
-    Min: 0.78482664
-    Max: 3.041203
+    Min: 0.47533554
+    Max: 2.2158933
   SpeedUpWords: 1
   SpeedRange:
-    Min: 0.16350555
-    Max: 4.054938
+    Min: 0.78248763
+    Max: 1.4758456
   ValidPlayerID: 1
   ReverseWordCount: 0
   FunctionWordCount: 0
   CommentWordCount: 0
+  SpeedUpWordCount: 0
+  SlowdownWordCount: 0
 --- !u!114 &5502895564659926557
 MonoBehaviour:
   m_ObjectHideFlags: 0

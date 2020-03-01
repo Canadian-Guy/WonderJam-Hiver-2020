@@ -730,12 +730,12 @@ PrefabInstance:
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: SpawnRateRange.Min
-      value: 5.831657
+      value: 5.522166
       objectReference: {fileID: 0}
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: SpawnRateRange.Max
-      value: 8.088034
+      value: 5.522166
       objectReference: {fileID: 0}
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
@@ -750,12 +750,17 @@ PrefabInstance:
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: SpeedRange.Min
-      value: 1.0540437
+      value: 1.260371
       objectReference: {fileID: 0}
     - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
       propertyPath: SpeedRange.Max
-      value: 2.1672163
+      value: 2.3735437
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983812881640345524, guid: 9d94f4429dd781f4b93f434466c35434,
+        type: 3}
+      propertyPath: SpeedUpSpawns
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983812881640345527, guid: 9d94f4429dd781f4b93f434466c35434,
         type: 3}
@@ -945,6 +950,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2b3ec9a61239d04cb24a4d511aebaf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &609640844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4675605319601006274, guid: 9d94f4429dd781f4b93f434466c35434,
+    type: 3}
+  m_PrefabInstance: {fileID: 609640839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4888e17e528f724fac9c5226a21b909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &661868617
@@ -1161,3 +1178,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuHandler: {fileID: 0}
   RoomInputField: {fileID: 0}
+  Timer: {fileID: 609640844}

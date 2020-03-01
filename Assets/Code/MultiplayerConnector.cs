@@ -14,6 +14,7 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
     RoomOptions m_roomOptions = new RoomOptions();
     public MainMenuUIHandler MainMenuHandler;
     public InputField RoomInputField;
+    public Timer Timer;
     private byte evCode = 0;
 
     // Start is called before the first frame update
@@ -74,6 +75,8 @@ public class MultiplayerConnector : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
+        if(Timer && Timer.CurrentTime <= 1.0f) return;
+
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel(0);
     }

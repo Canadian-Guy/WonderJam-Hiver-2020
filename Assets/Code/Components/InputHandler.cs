@@ -106,6 +106,8 @@ public class InputHandler : MonoBehaviour
         bool m_foundWord = false;
         foreach(FallingWord word in getAllActiveWords())
         {
+            if(word == null) continue;
+
             if(word.Check(p_input))
             {
                 if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
