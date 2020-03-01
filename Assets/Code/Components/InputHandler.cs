@@ -52,6 +52,7 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         StartCoroutine(UpdateHighlight());
+        StartCoroutine(CheckForCopyPaste());
     }
 
     public void PlayKeyStroke()
@@ -149,6 +150,28 @@ public class InputHandler : MonoBehaviour
         {
             HighlightWords();
             yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    private IEnumerator CheckForCopyPaste()
+    {
+        if(PhotonNetwork.LocalPlayer.ActorNumber == ValidPlayerID)
+        {
+            int length = 0;
+
+            while(true)
+            {
+                int newLength = inputField.text.Length;
+
+                if(inputField.text.Length > 0 && Mathf.Abs(length - newLength) >= 2)
+                {
+                    Clear();
+                }
+
+                length = inputField.text.Length;
+
+                yield return new WaitForSeconds(0.005f);
+            }
         }
     }
 }
